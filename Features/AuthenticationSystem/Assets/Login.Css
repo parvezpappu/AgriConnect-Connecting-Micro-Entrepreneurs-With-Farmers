@@ -15,7 +15,7 @@
     height: 25px;
     width: 150px;
     margin-left: 74px;
-    color: aquamarine;
+    
  }
 
  #password{
@@ -61,5 +61,8 @@
    cursor: pointer;
  }
  #SignupText{
+    margin-left: 90px;
+ }
+ #showError{
     margin-left: 90px;
  }
