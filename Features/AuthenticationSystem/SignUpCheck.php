@@ -1,0 +1,19 @@
+<?php
+  session_start();
+
+  if(isset($_POST['submit'])){
+    $userName=$_POST['email'];
+    $password=$_POST['password'];
+    $_SESSION['email']=$userName;
+    $_SESSION['password']=$password;
+    if($userName==""||$password==""){
+        header('location:Signup.php');
+    }
+    else{
+        header('location:Login.php');
+    }
+  }
+  else{
+    header('location:SignupCheck.php');
+  }
+?>

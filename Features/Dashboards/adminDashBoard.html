@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Agriconnect Admin Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- Optional: Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #f6f7fb;
+      --sidebar-bg: #ffffff;
+      --card-bg: #ffffff;
+      --primary: #2d7c4f;
+      --primary-soft: #e2f2e7;
+      --primary-soft-2: #eff8f2;
+      --accent-yellow: #ffcf66;
+      --accent-red: #f36a5a;
+      --accent-grey: #9ca3af;
+      --text-main: #111827;
+      --text-muted: #6b7280;
+      --border-subtle: #e5e7eb;
+      --radius-lg: 16px;
+      --radius-md: 12px;
+      --radius-pill: 999px;
+      --shadow-soft: 0 10px 30px rgba(15, 23, 42, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--text-main);
+      min-height: 100vh;
+      display: flex;
+    }
+
+    .app-shell {
+      display: flex;
+      width: 100%;
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 24px;
+      gap: 24px;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      width: 230px;
+      background: var(--sidebar-bg);
+      border-radius: var(--radius-lg);
+      padding: 20px 18px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 30px;
+    }
+
+    .logo-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 12px;
+      background: var(--primary-soft);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    .logo-text {
+      font-weight: 700;
+      font-size: 18px;
+    }
+
+    .nav {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .nav-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 12px;
+      border-radius: 10px;
+      font-size: 14px;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: background 0.15s, color 0.15s;
+    }
+
+    .nav-item-icon {
+      width: 26px;
+      height: 26px;
+      border-radius: 999px;
+      border: 1px solid var(--border-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+    }
+
+    .nav-item.active {
+      background: var(--primary-soft);
+      color: var(--primary);
+      font-weight: 600;
+    }
+
+    .nav-item.active .nav-item-icon {
+      border-color: transparent;
+      background: #ffffff;
+      color: var(--primary);
+    }
+
+    .sidebar-footer {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding-top: 10px;
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    .avatar {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--primary-soft-2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--primary);
+    }
+
+    .avatar-info {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.2;
+    }
+
+    .avatar-name {
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .avatar-role {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    /* Main area */
+    .main {
+      flex: 1;
+      display: grid;
+      grid-template-columns: minmax(0, 3.2fr) minmax(0, 1.3fr);
+      gap: 24px;
+    }
+
+    .main-left {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .main-header {
+      margin-bottom: 6px;
+    }
+
+    .main-header h1 {
+      font-size: 24px;
+      margin-bottom: 4px;
+    }
+
+    .main-header p {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border-radius: var(--radius-lg);
+      padding: 18px 18px 16px;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .card-header {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+    }
+
+    .card-main {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      margin-bottom: 4px;
+    }
+
+    .card-value {
+      font-size: 26px;
+      font-weight: 700;
+    }
+
+    .card-sub {
+      font-size: 12px;
+      color: var(--primary);
+      background: var(--primary-soft-2);
+      padding: 3px 8px;
+      border-radius: var(--radius-pill);
+      font-weight: 500;
+    }
+
+    .middle-row {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .card-subtitle {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+    }
+
+    /* Simple bar chart */
+    .bar-chart {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 10px;
+      height: 130px;
+      margin-bottom: 10px;
+    }
+
+    .bar {
+      flex: 1;
+      background: var(--primary-soft);
+      border-radius: 10px 10px 4px 4px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .bar-fill {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: var(--primary);
+      opacity: 0.6;
+      border-radius: 10px 10px 4px 4px;
+    }
+
+    .bar-labels {
+      display: flex;
+      justify-content: space-between;
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    /* Simple line-ish chart */
+    .line-chart {
+      position: relative;
+      height: 140px;
+      margin-top: 8px;
+    }
+
+    .line-chart-bg {
+      position: absolute;
+      inset: 0;
+      border-radius: 10px;
+      background: linear-gradient(to top, rgba(45, 124, 79, 0.08), transparent);
+    }
+
+    .line-chart svg {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+
+    .line-chart-xlabels {
+      display: flex;
+      justify-content: space-between;
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-top: 6px;
+    }
+
+    /* Transactions */
+    .transactions-card {
+      margin-top: 4px;
+    }
+
+    .card-title-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+
+    .card-title-row h2 {
+      font-size: 16px;
+    }
+
+    .transactions-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+
+    .transactions-table thead tr {
+      text-align: left;
+      color: var(--text-muted);
+      font-size: 12px;
+    }
+
+    .transactions-table th,
+    .transactions-table td {
+      padding: 10px 4px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .transactions-table th:first-child,
+    .transactions-table td:first-child {
+      padding-left: 0;
+    }
+
+    .transactions-table th:last-child,
+    .transactions-table td:last-child {
+      padding-right: 0;
+    }
+
+    .status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      padding: 4px 10px;
+      border-radius: var(--radius-pill);
+      font-weight: 500;
+    }
+
+    .status-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--accent-grey);
+    }
+
+    .status-completed {
+      background: #def9e8;
+      color: var(--primary);
+    }
+
+    .status-completed .status-dot {
+      background: var(--primary);
+    }
+
+    .status-pending {
+      background: #fff5da;
+      color: #b08900;
+    }
+
+    .status-pending .status-dot {
+      background: var(--accent-yellow);
+    }
+
+    .status-cancelled {
+      background: #ffe4e0;
+      color: #c0362f;
+    }
+
+    .status-cancelled .status-dot {
+      background: var(--accent-red);
+    }
+
+    /* Right column: notifications */
+    .notifications-card {
+      align-self: flex-start;
+      padding: 18px 18px 14px;
+    }
+
+    .notifications-card h2 {
+      font-size: 16px;
+      margin-bottom: 12px;
+    }
+
+    .notification-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 4px;
+    }
+
+    .notification-item {
+      display: grid;
+      grid-template-columns: 38px minmax(0, 1fr);
+      gap: 10px;
+      padding: 10px 8px;
+      border-radius: 12px;
+      background: #f9fafb;
+    }
+
+    .notification-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+    }
+
+    .notif-green {
+      background: var(--primary-soft);
+      color: var(--primary);
+    }
+
+    .notif-yellow {
+      background: #fff5da;
+      color: #b08900;
+    }
+
+    .notif-blue {
+      background: #e0ebff;
+      color: #1d4ed8;
+    }
+
+    .notif-red {
+      background: #ffe4e0;
+      color: #c0362f;
+    }
+
+    .notification-title {
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+
+    .notification-body {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-bottom: 2px;
+    }
+
+    .notification-time {
+      font-size: 11px;
+      color: var(--accent-grey);
+    }
+
+    /* Responsive tweaks */
+    @media (max-width: 1100px) {
+      .app-shell {
+        padding: 16px;
+      }
+      .sidebar {
+        display: none;
+      }
+      .main {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .stats-row,
+      .middle-row {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div>
+        <div class="logo">
+          <div class="logo-icon">Ag</div>
+          <div class="logo-text">Agriconnect</div>
+        </div>
+
+        <nav class="nav">
+          <div class="nav-item active">
+            <div class="nav-item-icon">🏠</div>
+            <span>Dashboard</span>
+          </div>
+          <div class="nav-item">
+            <div class="nav-item-icon">👨‍🌾</div>
+            <span>Users</span>
+          </div>
+          <div class="nav-item">
+            <div class="nav-item-icon">📦</div>
+            <span>Products</span>
+          </div>
+          <div class="nav-item">
+            <div class="nav-item-icon">🧾</div>
+            <span>Orders</span>
+          </div>
+          <div class="nav-item">
+            <div class="nav-item-icon">📊</div>
+            <span>Reports</span>
+          </div>
+          <div class="nav-item">
+            <div class="nav-item-icon">⚙️</div>
+            <span>Settings</span>
+          </div>
+        </nav>
+      </div>
+
+      <div class="sidebar-footer">
+        <div class="avatar">A</div>
+        <div class="avatar-info">
+          <span class="avatar-name">Admin</span>
+          <span class="avatar-role">Agriconnect</span>
+        </div>
+      </div>
+    </aside>
+
+    <main class="main">
+      <!-- LEFT SIDE -->
+      <section class="main-left">
+        <header class="main-header">
+          <h1>Admin Dashboard</h1>
+          <p id="welcome-text">Welcome back, Admin. Here's what's happening today.</p>
+        </header>
+
+        <!-- Stat cards -->
+        <div class="stats-row">
+          <div class="card">
+            <div class="card-header">Total Farmers</div>
+            <div class="card-main">
+              <div class="card-value">1,234</div>
+              <div class="card-sub">+5.2% this month</div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-header">Total Buyers</div>
+            <div class="card-main">
+              <div class="card-value">567</div>
+              <div class="card-sub">+3.1% this month</div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-header">Total Employees</div>
+            <div class="card-main">
+              <div class="card-value">89</div>
+              <div class="card-sub">+1.5% this month</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Charts -->
+        <div class="middle-row">
+          <!-- Product Activity -->
+          <div class="card">
+            <div class="card-header">Product Activity</div>
+            <div class="card-main">
+              <div class="card-value">2,150 Units</div>
+            </div>
+            <div class="card-subtitle">Last 30 Days <span style="color: var(--primary); font-weight: 600;">+12%</span></div>
+
+            <div class="bar-chart">
+              <div class="bar">
+                <div class="bar-fill" style="height: 40%;"></div>
+              </div>
+              <div class="bar">
+                <div class="bar-fill" style="height: 60%;"></div>
+              </div>
+              <div class="bar">
+                <div class="bar-fill" style="height: 85%;"></div>
+              </div>
+              <div class="bar">
+                <div class="bar-fill" style="height: 70%;"></div>
+              </div>
+              <div class="bar">
+                <div class="bar-fill" style="height: 50%;"></div>
+              </div>
+            </div>
+            <div class="bar-labels">
+              <span>Wheat</span>
+              <span>Corn</span>
+              <span>Tomatoes</span>
+              <span>Potatoes</span>
+              <span>Apples</span>
+            </div>
+          </div>
+
+          <!-- Order Trends -->
+          <div class="card">
+            <div class="card-header">Order Trends</div>
+            <div class="card-main">
+              <div class="card-value">352 Orders</div>
+            </div>
+            <div class="card-subtitle">Last 30 Days <span style="color: var(--primary); font-weight: 600;">+8%</span></div>
+
+            <div class="line-chart">
+              <div class="line-chart-bg"></div>
+              <!-- simple static svg polyline -->
+              <svg viewBox="0 0 100 50" preserveAspectRatio="none">
+                <polyline
+                  points="0,40 15,30 30,35 45,20 60,25 75,15 90,30 100,18"
+                  fill="none"
+                  stroke="#16a34a"
+                  stroke-width="1.7"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </div>
+            <div class="line-chart-xlabels">
+              <span>Wk 1</span>
+              <span>Wk 2</span>
+              <span>Wk 3</span>
+              <span>Wk 4</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Recent Transactions -->
+        <div class="card transactions-card">
+          <div class="card-title-row">
+            <h2>Recent Transactions</h2>
+          </div>
+          <table class="transactions-table">
+            <thead>
+              <tr>
+                <th>TRANSACTION ID</th>
+                <th>USER</th>
+                <th>AMOUNT</th>
+                <th>DATE</th>
+                <th>STATUS</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>#12045</td>
+                <td>John Farmer</td>
+                <td>$450.00</td>
+                <td>2023-10-26</td>
+                <td>
+                  <span class="status-pill status-completed">
+                    <span class="status-dot"></span>
+                    Completed
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td>#12044</td>
+                <td>Jane Buyer</td>
+                <td>$1,200.00</td>
+                <td>2023-10-25</td>
+                <td>
+                  <span class="status-pill status-pending">
+                    <span class="status-dot"></span>
+                    Pending
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td>#12043</td>
+                <td>Mike Hub</td>
+                <td>$85.50</td>
+                <td>2023-10-25</td>
+                <td>
+                  <span class="status-pill status-completed">
+                    <span class="status-dot"></span>
+                    Completed
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td>#12042</td>
+                <td>Sarah Farmer</td>
+                <td>$300.75</td>
+                <td>2023-10-24</td>
+                <td>
+                  <span class="status-pill status-cancelled">
+                    <span class="status-dot"></span>
+                    Cancelled
+                  </span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- RIGHT SIDE: Notifications -->
+      <aside class="card notifications-card">
+        <h2>Notifications</h2>
+        <div class="notification-list">
+          <div class="notification-item">
+            <div class="notification-icon notif-green">👨‍🌾</div>
+            <div>
+              <div class="notification-title">New Farmer Registered</div>
+              <div class="notification-body">
+                David Miller from Green Valley Farms just signed up.
+              </div>
+              <div class="notification-time">15 minutes ago</div>
+            </div>
+          </div>
+
+          <div class="notification-item">
+            <div class="notification-icon notif-yellow">🧾</div>
+            <div>
+              <div class="notification-title">Large Order Placed</div>
+              <div class="notification-body">
+                Order #12044 for $1,200.00 is awaiting processing.
+              </div>
+              <div class="notification-time">1 hour ago</div>
+            </div>
+          </div>
+
+          <div class="notification-item">
+            <div class="notification-icon notif-blue">🔄</div>
+            <div>
+              <div class="notification-title">System Update</div>
+              <div class="notification-body">
+                The system will be down for maintenance tonight at 11 PM.
+              </div>
+              <div class="notification-time">4 hours ago</div>
+            </div>
+          </div>
+
+          <div class="notification-item">
+            <div class="notification-icon notif-red">⚠️</div>
+            <div>
+              <div class="notification-title">Payment Failed</div>
+              <div class="notification-body">
+                Payment for invoice #INV-0987 failed.
+              </div>
+              <div class="notification-time">Yesterday</div>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </main>
+  </div>
+
+  <script>
+    // Tiny JS: highlight active nav item on click & add today's date to welcome text
+    document.querySelectorAll(".nav-item").forEach(function (item) {
+      item.addEventListener("click", function () {
+        document.querySelectorAll(".nav-item").forEach(function (i) {
+          i.classList.remove("active");
+        });
+        this.classList.add("active");
+      });
+    });
+
+    (function () {
+      var el = document.getElementById("welcome-text");
+      if (!el) return;
+      var today = new Date();
+      var options = { year: "numeric", month: "short", day: "numeric" };
+      var formatted = today.toLocaleDateString(undefined, options);
+      el.textContent =
+        "Welcome back, Admin. Here's what's happening today (" + formatted + ").";
+    })();
+  </script>
+</body>
+</html>
