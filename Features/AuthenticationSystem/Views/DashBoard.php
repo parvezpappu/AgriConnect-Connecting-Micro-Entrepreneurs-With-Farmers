@@ -2,7 +2,6 @@
      
     <?php
     require_once("../Controllers/authCheck.php");
-    session_start();
     echo'welcome';
     echo" ", $_SESSION['Fullname'];
     ?>

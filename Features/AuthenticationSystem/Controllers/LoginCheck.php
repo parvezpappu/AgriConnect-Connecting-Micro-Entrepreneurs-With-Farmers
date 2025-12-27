@@ -1,9 +1,17 @@
 <?php
 session_start();
    if(isset($_POST['subMit'])){
+      
+      if(isset($_SESSION['email'], $_SESSION['password'])){
+       $userEmailSignUp=$_SESSION['email'];
+       $passwordSignUp=$_SESSION['password'];
+      }
+      else{
+        $userEmailSignUp="";
+        $passwordSignUp="";
 
-      $userEmailSignUp=$_SESSION['email'];
-      $passwordSignUp=$_SESSION['password'];
+      }
+      
 
       $userEmailLogin=$_POST['email'];
       $passwordLogin=$_POST['pasword'];
