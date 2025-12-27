@@ -20,7 +20,6 @@
     return;
     };
 
-
   let countDot=0;
   let countAtTheRate=0;
   let boolSpace=false;
