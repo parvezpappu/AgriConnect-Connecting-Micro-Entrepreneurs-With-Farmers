@@ -1,9 +1,9 @@
 
      
     <?php
-    session_start();
+    require_once("../Controllers/authCheck.php");
     echo'welcome';
-    echo" ", $_SESSION['email'];
+    echo" ", $_SESSION['Fullname'];
     ?>
     <!DOCTYPE html>
     <html lang="en">
@@ -13,7 +13,7 @@
         <title>Document</title>
     </head>
     <body>
-            <a href="Logout.php">Logout</a>
+            <a href="../Controllers/Logout.php">Logout</a>
 
     </body>
     </html>
