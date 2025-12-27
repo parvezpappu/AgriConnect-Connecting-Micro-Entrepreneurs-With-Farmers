@@ -25,7 +25,8 @@ session_start();
   if($userEmailSignUp===$userEmailLogin && $passwordSignUp===$passwordLogin){
         $_SESSION['valid']=true;
         setcookie("valid","true",time()+5000,"/");
-        header('location:../Views/DashBoard.php');
+        header("location:../../Dashboards/Views/Admin.php");
+
     }
      else{
      echo"Email and Password Should Be Same From SignUp";
