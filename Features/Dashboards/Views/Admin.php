@@ -86,7 +86,6 @@
             <p>Farmer Request For Payment</p>
             <p>Order Placed From Farmer</p>
         </div>
-
      </div>
  </body>
  </html>
