@@ -25,7 +25,7 @@
     text-align: center;
 }
 
-#farmers{
+#myOrders{
     cursor: pointer;
     border: 1px solid black;
     padding: 5px;
@@ -43,26 +43,7 @@
     width: 150px;          
     text-align: center;
 }
-#transaction{
-    cursor: pointer;
-    border: 1px solid black;
-    padding: 5px;
-    border-radius: 10px;
-    height: 50px;
-    width: 150px;          
-    text-align: center;
-}
 
-#reports{
-    cursor: pointer;
-    border: 1px solid black;;
-    padding: 5px;
-    border-radius: 10px;
-    height: 50px;
-    width: 150px;          
-    text-align: center;
-
-}
 
 #setting{
     cursor: pointer;
@@ -74,8 +55,7 @@
     text-align: center;
 
 }
-
-#employee{
+#farmer{
     cursor: pointer;
     border: 1px solid black;
     border-radius: 15px;
