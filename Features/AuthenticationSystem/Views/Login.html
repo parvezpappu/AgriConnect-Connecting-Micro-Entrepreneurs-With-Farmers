@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgriConnect</title>
+    <link rel="stylesheet" href="../Assets/Login.Css">
+</head>
+<body>
+    <h1 id="header">Welcome To AgriConnect</h1>
+    <form action="../Controllers/LoginCheck.php" method="post">
+        <div id="fixedDisplay">
+
+        <img src="https://agriconnect.au/images/website-share-preview.png" alt="agriconnect" id="imgId">
+        <div id="LoginComponent">
+        <h2 id="headerOfLogin">Log In to Your Account</h2>
+
+        <br>
+        <label id="emailText">Email  </label>
+        <input type="email" name="email" id="email">
+
+        <br>
+        <br>
+        <label id="passText">Password   </label>
+        <input type="password" name="pasword" id="password">
+
+        <br>
+        <br>
+        <label id="showError"></label>
+        <br>
+        <br>
+        <input type="submit" name="subMit" id="subMit">
+
+        <br>
+        <br>
+        <label id="SignupText">Don't Have An Account?</label>
+        <a href="SignUp.html">SignUp</a>
+        </div>
+        </div>
+         <script src="../Assets/Login.js"></script>
+    </form>
+</body>
+</html>

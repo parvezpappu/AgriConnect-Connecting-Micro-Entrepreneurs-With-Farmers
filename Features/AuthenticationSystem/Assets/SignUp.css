@@ -1,0 +1,117 @@
+ 
+ 
+
+ #SignUpComponent{
+    background-color: rgb(219, 212, 220);
+    border-radius: 15px;
+    padding: 15px;
+    height: 500px;
+    width: 450px;
+ }
+
+
+ #header{
+  text-align: center;
+  color: black;
+ }
+
+ #fixedDisplay{
+  display: flex;
+  position: absolute;
+ }
+
+ #img{
+  height: 400px;
+  width: 700px;
+  margin-top: 100px;
+  margin-left: 50px;
+  margin-right: 100px;
+  border-radius: 15px;
+ }
+
+ 
+  #fullNameText{  
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 5px;
+    margin-left: 55px;
+    margin-top: 50px;
+ }
+
+ #EmailText{
+   border: 1px solid black;
+   border-radius: 5px;
+   padding: 5px;
+   margin-left: 55px;
+ }
+
+ #AddressText{
+   border: 1px solid black;
+   border-radius: 5px;
+   padding: 5px;
+   margin-left: 55px;
+  }
+
+ #PaswordText{
+   border: 1px solid black;
+   border-radius: 5px;
+   padding: 5px;
+   margin-left: 55px;
+ }
+
+ #confirmPassword{
+   border: 1px solid black;
+   border-radius: 5px;
+   padding: 5px;
+   margin-left: 55px;
+ }
+
+ #fullname{
+   height: 25px;
+   width: 150px;
+   margin-left: 85px;
+ }
+
+ #emailS{
+   height: 25px;
+   width: 150px;
+   margin-left: 56px;
+ }
+
+ #address{
+   height: 25px;
+   width: 150px;
+   margin-left: 99px;
+ }
+
+ #createPass{
+   height: 25px;
+   width: 150px;
+   margin-left: 43px;
+ }
+
+ #confirmPass{
+   height: 25px;
+   width: 150px;
+   margin-left: 30px;
+ }
+
+ #submit{
+  margin-left: 150px;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 5px;
+  cursor: pointer;
+}  
+
+
+ #AccountText{
+  margin-left: 90px;
+ }
+
+ #createAccount{
+    text-align: center;
+ }
+ #SignUpError{
+    margin-left: 90px;
+ }
