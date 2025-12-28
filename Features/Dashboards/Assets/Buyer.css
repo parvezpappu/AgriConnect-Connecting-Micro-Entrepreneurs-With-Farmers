@@ -1,0 +1,138 @@
+
+
+#dashboardComponent{
+    display: flex;
+  
+ 
+    
+}
+#LeftBarDashBoard{
+    background-color: rgb(219, 212, 220);  
+    border-radius: 15px;
+    height: 550px;
+    width: 200px;
+    padding: 15px;
+    margin-top: 5px;
+    margin-left: 15px;
+    
+}
+#dashboard{
+
+    cursor: pointer;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 5px;
+    height: 50px;
+    width: 150px;          
+    text-align: center;
+}
+
+
+#products{
+    cursor: pointer;
+    border: 1px solid black;
+    padding: 5px;
+    border-radius: 10px;
+    height: 50px;
+    width: 150px;          
+    text-align: center;
+}
+#orders{
+    cursor: pointer;
+    border: 1px solid black;
+    padding: 5px;
+    border-radius: 10px;
+    height: 50px;
+    width: 150px;          
+    text-align: center;
+}
+
+#farmers{
+    cursor: pointer;
+    border: 1px solid black;
+    padding: 5px;
+    border-radius: 10px;
+    height: 50px;
+    width: 150px;          
+    text-align: center;
+}
+
+#setting{
+    cursor: pointer;
+    border: 1px solid black;;
+    padding: 5px;
+    border-radius: 10px;
+    height: 50px;
+    width: 150px;          
+    text-align: center;
+
+}
+#buyer{
+    cursor: pointer;
+    border: 1px solid black;
+    border-radius: 15px;
+    width: 150px;   
+    padding: 5px;
+}
+
+#infoOverAll{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#totalOrders{
+     border: 1px solid black;
+     border-radius: 10px;
+     padding: 10px;
+     height: 28px;
+     width: 150px; 
+     text-align: center;
+}
+
+#PendingPayments{
+     border: 1px solid black;
+     border-radius: 10px;
+     padding: 10px;
+     height: 28px;
+     width: 150px; 
+     text-align: center;
+}
+
+#totalDeliveredOrders{
+     border: 1px solid black;
+     border-radius: 10px;
+     padding: 10px;
+     height: 28px;
+     width: 150px; 
+     text-align: center;
+
+}
+#middleDashBoard{
+    background-color: rgb(219, 212, 220);  
+    border-radius: 15px;
+    height: 550px;    
+    padding: 15px;
+    width: 800px;
+    margin-top: 5px;
+    margin-left: 10px;
+    
+}
+
+#rightDashBoard{
+     background-color: rgb(219, 212, 220); 
+     margin-left: 7px;
+     padding: 15px;
+     margin-top: 5px;
+     border-radius: 15px;
+
+}
+#logOut{
+    cursor: pointer;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 5px;
+    height: 50px;
+    width: 150px;          
+    text-align: center;
+    margin-left: 35px;
+}
