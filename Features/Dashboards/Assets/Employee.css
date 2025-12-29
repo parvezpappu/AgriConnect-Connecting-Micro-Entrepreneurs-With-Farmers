@@ -52,7 +52,6 @@
     width: 150px;          
     text-align: center;
 }
-
 #reports{
     cursor: pointer;
     border: 1px solid black;;
@@ -63,7 +62,6 @@
     text-align: center;
 
 }
-
 #setting{
     cursor: pointer;
     border: 1px solid black;;
@@ -74,7 +72,6 @@
     text-align: center;
 
 }
-
 #employee{
     cursor: pointer;
     border: 1px solid black;
