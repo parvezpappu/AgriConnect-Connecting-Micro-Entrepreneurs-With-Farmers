@@ -1,6 +1,6 @@
 
  <?php
- require("../../AuthenticationSystem/Controllers/authCheck.php");
+ require_once("../../AuthenticationSystem/Controllers/authCheck.php");
  ?>
 
  <!DOCTYPE html>
@@ -19,7 +19,7 @@
           <button id="dashboard">DashBoard</button>
           <br>
           <br>
-          <button id="users">Users</button>
+          <button id="users">Employee</button>
           <br>
           <br>
           <button id="products">Products</button>
@@ -41,10 +41,15 @@
           
           <a href="../../AuthenticationSystem/Controllers/Logout.php" id="logOut">Logout</a>
         </div>
-
         <div id="middleDashBoard">
+          
+          <?php include("Users.php");?>
+          <?php include("Products.php");?>
+          <?php include("Orders.php");?>
+          <?php include("Settings.php");?>
 
-         <h1 id="welcomeText">Admin DashBoard
+          <div id="dashboardView">
+           <h1 id="welcomeText">Admin DashBoard
           <h3>Welcome back  
           <?php 
            if(!isset($_SESSION['Fullname'])){
@@ -76,10 +81,10 @@
             <br>
             80
             </p>
-
           </div>
-
+          </div>
         </div>
+       
 
         <div id="rightDashBoard">
             <h1>Notifications</h1>
@@ -87,5 +92,6 @@
             <p>Order Placed From Farmer</p>
         </div>
      </div>
+     <script src="../Assets/Admin.js"></script>
  </body>
  </html>
