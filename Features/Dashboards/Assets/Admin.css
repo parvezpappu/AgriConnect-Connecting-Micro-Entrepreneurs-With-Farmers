@@ -25,7 +25,7 @@
     text-align: center;
 }
 
-#farmers{
+#users{
     cursor: pointer;
     border: 1px solid black;
     padding: 5px;
@@ -43,16 +43,6 @@
     width: 150px;          
     text-align: center;
 }
-#transaction{
-    cursor: pointer;
-    border: 1px solid black;
-    padding: 5px;
-    border-radius: 10px;
-    height: 50px;
-    width: 150px;          
-    text-align: center;
-}
-
 #reports{
     cursor: pointer;
     border: 1px solid black;;
@@ -74,20 +64,26 @@
     text-align: center;
 
 }
-
-#employee{
+#admin{
     cursor: pointer;
-    border: 1px solid black;
-    border-radius: 15px;
-    width: 150px;   
+    border: 1px solid black;;
     padding: 5px;
-}
+    border-radius: 10px;
+    height: 50px;
+    width: 150px;          
+    text-align: center;
 
-#infoOverAll{
-    display: flex;
-    justify-content: space-evenly;
 }
+#orders{
+    cursor: pointer;
+    border: 1px solid black;;
+    padding: 5px;
+    border-radius: 10px;
+    height: 50px;
+    width: 150px;          
+    text-align: center;
 
+}
 #totalfarmers{
      border: 1px solid black;
      border-radius: 10px;
@@ -115,6 +111,17 @@
      text-align: center;
 
 }
+
+
+#infoOverAll{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+
+
+
+
 #middleDashBoard{
     background-color: rgb(219, 212, 220);  
     border-radius: 15px;
