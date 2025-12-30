@@ -41,7 +41,11 @@
         </div>
 
         <div id="middleDashBoard">
-
+           
+            <?php include("FarmerOrders.php");?>
+            <?php include("FarmerProducts.php");?>
+            <?php include("FarmerSetting.php");?>
+        <div id="dashboardView">
          <h1 id="welcomeText">Farmer DashBoard
           <h3>Welcome back  
           <?php 
@@ -54,27 +58,8 @@
 
          </h1>
          
-
-          <div id="infoOverAll">
-            <p id="totalfarmers">
-            Total Farmers
-            <br>
-            1200
-            </p>
-
-            <p id="totalBuyer">
-            Total Buyer
-            <br>
-            120
-            </p>
-
-            <p id="totalEmployee">
-            Total Employee
-            <br>
-            80
-            </p>
-
-          </div>
+         </div>
+         
 
         </div>
 
@@ -85,5 +70,6 @@
         </div>
 
      </div>
+     <script src="../Assets/Farmer.js"></script>
  </body>
  </html>
