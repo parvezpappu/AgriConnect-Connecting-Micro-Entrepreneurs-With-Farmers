@@ -43,10 +43,10 @@
         </div>
         <div id="middleDashBoard">
           
-          <?php include("Users.php");?>
-          <?php include("Products.php");?>
-          <?php include("Orders.php");?>
-          <?php include("Settings.php");?>
+          <?php include("AdminUsers.php");?>
+          <?php include("AdminProducts.php");?>
+          <?php include("AdminOrders.php");?>
+          <?php include("AdminSettings.php");?>
 
           <div id="dashboardView">
            <h1 id="welcomeText">Admin DashBoard

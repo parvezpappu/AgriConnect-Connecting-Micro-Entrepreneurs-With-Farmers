@@ -23,14 +23,13 @@
           <button id="farmers">Farmers</button>
           <br>
           <br>
+          <button id="shopOwener">Shop OWner</button>
+          <br>
+          <br>
           <button id="products">Products</button>
           <br>
           <br>
-          <button id="transaction">Transaction</button>
-
-          <br>
-          <br>
-          <button id="reports">Reports</button>
+          <button id="reports">Request</button>
           <br>
           <br>
           <button id="setting">Settings</button>
@@ -47,7 +46,12 @@
         </div>
 
         <div id="middleDashBoard">
-
+           <?php include("EmoloyeeFarmer.php");?>
+           <?php include("EmployeeProduct.php");?>
+           <?php include("EmoloyeeshooOwner.php");?>
+           <?php include("EmployeeRequest.php");?>
+           <?php include("EmployeeSetting.php");?>
+           <div id="dashboardView">
          <h1 id="welcomeText">Employee DashBoard
           <h3>Welcome back  
           <?php 
@@ -73,15 +77,8 @@
             <br>
             120
             </p>
-
-            <p id="totalEmployee">
-            Total Employee
-            <br>
-            80
-            </p>
-
           </div>
-
+          </div>
         </div>
 
         <div id="rightDashBoard">
@@ -91,5 +88,6 @@
         </div>
 
      </div>
+      <script src="../Assets/Employee.js"></script>
  </body>
  </html>

@@ -9,7 +9,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Buyer Portal</title>
-    <link rel="stylesheet" href="../Assets/BUyer.css">
+    <link rel="stylesheet" href="../Assets/ShopOwner.css">
  </head>
  <body>
      <div id="dashboardComponent">
@@ -25,13 +25,10 @@
           <button id="orders">Orders</button>
           <br>
           <br>
-          <button id="farmers">Farmers</button>
-          <br>
-          <br>
           <button id="setting">Settings</button>
           <br>
           <br>
-          <button id="buyer"> Profile <br>Buyer
+          <button id="ShopPartner"> Profile <br>Buyer
             <br>
             Agriconnect
           </button>
@@ -42,8 +39,11 @@
         </div>
 
         <div id="middleDashBoard">
-
-             <h1 id="welcomeText">Buyer DashBoard
+         <?php include("ShopOwnerProducts.php");?>
+          <?php include("ShopOwnerOrders.php");?>
+          <?php include("ShopOwnerSettings.php");?>
+             <div id="dashboardView">
+             <h1 id="welcomeText">ShopOwner DashBoard
               <h3>Welcome back  
               <?php 
                if(!isset($_SESSION['Fullname'])){
@@ -55,30 +55,10 @@
               </h3>
     
              </h1>
-             
-    
-              <div id="infoOverAll">
-                  <p id="totalOrders">
-                  Total Orders
-                  <br>
-                  200
-                  </p>
-      
-                  <p id="PendingPayments">
-                  Pending Payments
-                  <br>
-                  $1200
-                  </p>
-      
-                  <p id="totalDeliveredOrders">
-                  Total Delivered Orders
-                  <br>
-                  800
-                  </p>
+           
 
         </div>
-
-        </div>
+            </div>
 
         <div id="rightDashBoard">
             <h1>Notifications</h1>
@@ -87,5 +67,6 @@
         </div>
 
      </div>
+     <script src="../Assets/ShopOwner.js"></script>
  </body>
  </html>
