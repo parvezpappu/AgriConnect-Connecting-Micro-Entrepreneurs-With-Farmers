@@ -1,47 +1,65 @@
+  <?php
+  require_once("../Models/RequstModels.php");
 
+  $requests = getAllRequests();
+  ?>
 
+  <div id="requesttsView" style="display:none;">
 
-<div id="requesttsView" style="display:none;">
-  <h1>Products</h1>
+    <h1>Signup Requests</h1>
+    <p>Pending Users</p>
 
- 
-  <table border="1" width="100%">
-    <thead>
-      <tr>
-        <th>Request ID</th>
-        <th>Product Name</th>
-        <th>Category</th>
-        <th>Price</th>
-        <th>Stock</th>
-        <th>Status</th>
-      </tr>
-    </thead>
+    <table border="1" width="100%">
 
-    <tbody>
-      <tr>
-        <td>PR-001</td>
-        <td>Fresh Tomato</td>
-        <td>Vegetable</td>
-        <td>৳ 60 / kg</td>
-        <td>120</td>
-        <td>Active</td>
-      </tr>
-      <tr>
-        <td>PR-002</td>
-        <td>Basmati Rice</td>
-        <td>Grain</td>
-        <td>৳ 110 / kg</td>
-        <td>75</td>
-        <td>Active</td>
-      </tr>
-      <tr>
-        <td>PR-003</td>
-        <td>Honey</td>
-        <td>Organic</td>
-        <td>৳ 350 / jar</td>
-        <td>20</td>
-        <td>Inactive</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Address</th>
+          <th>Role</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+  <?php
+  if(empty($requests)){
+  ?>
+        <tr>
+          <td colspan="5" style="text-align:center; font-weight:bold;">
+            No pending signup requests
+          </td>
+        </tr>
+  <?php
+  }else{
+      foreach($requests as $row){
+    ?>
+        <tr>
+          <td><?php echo $row['Name']; ?></td>
+          <td><?php echo $row['Email']; ?></td>
+          <td><?php echo $row['Address']; ?></td>
+          <td><?php echo $row['Role']; ?></td>
+          <td>
+
+            <form action="../Controllers/ApproveRequest.php"  method="post"style="display:inline;">
+              <input type="hidden" name="email" value="<?php echo $row['Email']; ?>">
+              <input type="submit" name="approve" value="Approve">
+            </form>
+
+        
+            <form action="../Controllers/RejectRequest.php" method="post" style="display:inline;">
+              <input type="hidden" name="email" value="<?php echo $row['Email']; ?>">
+              <input type="submit" name="reject" value="Reject">
+            </form>
+          </td>
+        </tr>
+  <?php
+      }
+  } 
+  ?>
+
+      </tbody>
+    </table>
+
+  </div>
