@@ -1,33 +1,35 @@
 <?php
-  session_start();
+require_once("../Models/RequestModels.php");
 
-  if(isset($_POST['submit'])){
+if(isset($_POST['submit'])){
 
     $userEmail=$_POST['emailS'];
     $fullName=$_POST['fullname'];
     $address=$_POST['address'];
     $passwordCreate=$_POST['createPass'];
     $passwordConfirm=$_POST['confirmPass'];
+    $role=$_POST['user_type'];
 
-
-    $_SESSION['email']=$userEmail;
-    $_SESSION['password']=$passwordConfirm;
-    $_SESSION['Fullname']=$fullName;
-
-    if($userEmail==""||$fullName==""||$address==""||$passwordCreate==""||$passwordConfirm==""){
-       echo"Null Submission!";
+    if($userEmail==""||$fullName==""||$address==""||$passwordCreate==""||$passwordConfirm==""||$role==""){
+        echo "Null Submission!";
+        exit;
     }
-    else{
-        if($passwordConfirm==$passwordCreate){
-          header('location:../Views/Login.html');
-        }
-        else{
-          echo"Create Password And Confirm Passwod Should Be Mathced";
-        }
-        
+
+    if($passwordConfirm != $passwordCreate){
+        echo "Create Password And Confirm Password Should Be Matched";
+        exit;
     }
-  }
-  else{
-    header('location:SignupCheck.php');
-  }
+
+    $status=insertRequest($fullName,$userEmail,$address,$passwordConfirm,$role);
+
+    if($status){
+        echo "Request submitted successfully. Please wait for employee approval.";
+    }else{
+        echo "Request submission failed!";
+    }
+
+}else{
+    header('location:../Views/SignUp.html');
+    exit;
+}
 ?>

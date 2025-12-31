@@ -79,7 +79,7 @@
             <p id="totalEmployee">
             Total Employee
             <br>
-            90
+          <?php  echo$_SESSION['CountEmployee']?>
             </p>
           </div>
           </div>
