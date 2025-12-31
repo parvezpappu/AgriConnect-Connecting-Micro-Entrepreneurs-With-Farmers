@@ -1,3 +1,5 @@
+
+
 #dashboardComponent{
     display: flex;
   
@@ -25,15 +27,7 @@
     text-align: center;
 }
 
-#users{
-    cursor: pointer;
-    border: 1px solid black;
-    padding: 5px;
-    border-radius: 10px;
-    height: 50px;
-    width: 150px;          
-    text-align: center;
-}
+
 #products{
     cursor: pointer;
     border: 1px solid black;
@@ -43,15 +37,24 @@
     width: 150px;          
     text-align: center;
 }
-#reports{
+#orders{
     cursor: pointer;
-    border: 1px solid black;;
+    border: 1px solid black;
     padding: 5px;
     border-radius: 10px;
     height: 50px;
     width: 150px;          
     text-align: center;
+}
 
+#farmers{
+    cursor: pointer;
+    border: 1px solid black;
+    padding: 5px;
+    border-radius: 10px;
+    height: 50px;
+    width: 150px;          
+    text-align: center;
 }
 
 #setting{
@@ -64,64 +67,46 @@
     text-align: center;
 
 }
-#admin{
+#ShopPartner{
     cursor: pointer;
-    border: 1px solid black;;
+    border: 1px solid black;
+    border-radius: 15px;
+    width: 150px;   
     padding: 5px;
-    border-radius: 10px;
-    height: 50px;
-    width: 150px;          
-    text-align: center;
-
 }
-#orders{
-    cursor: pointer;
-    border: 1px solid black;;
-    padding: 5px;
-    border-radius: 10px;
-    height: 50px;
-    width: 150px;          
-    text-align: center;
-
-}
-#totalfarmers{
-     border: 1px solid black;
-     border-radius: 10px;
-     padding: 10px;
-     height: 28px;
-     width: 150px; 
-     text-align: center;
-}
-
-#totalBuyer{
-     border: 1px solid black;
-     border-radius: 10px;
-     padding: 10px;
-     height: 28px;
-     width: 150px; 
-     text-align: center;
-}
-
-#totalEmployee{
-     border: 1px solid black;
-     border-radius: 10px;
-     padding: 10px;
-     height: 28px;
-     width: 150px; 
-     text-align: center;
-
-}
-
 
 #infoOverAll{
     display: flex;
     justify-content: space-evenly;
 }
 
+#totalOrders{
+     border: 1px solid black;
+     border-radius: 10px;
+     padding: 10px;
+     height: 28px;
+     width: 150px; 
+     text-align: center;
+}
 
+#PendingPayments{
+     border: 1px solid black;
+     border-radius: 10px;
+     padding: 10px;
+     height: 28px;
+     width: 150px; 
+     text-align: center;
+}
 
+#totalDeliveredOrders{
+     border: 1px solid black;
+     border-radius: 10px;
+     padding: 10px;
+     height: 28px;
+     width: 150px; 
+     text-align: center;
 
-
+}
 #middleDashBoard{
     background-color: rgb(219, 212, 220);  
     border-radius: 15px;
