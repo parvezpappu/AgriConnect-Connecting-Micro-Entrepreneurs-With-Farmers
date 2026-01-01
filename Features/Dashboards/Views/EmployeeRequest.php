@@ -1,8 +1,9 @@
   <?php
   require_once("../Models/RequstModels.php");
 
-  $requests = getAllRequests();
-  ?>
+  [$requests,$countofRequest] = getAllRequests();
+  $_SESSION['CountOfRequest']=$countofRequest;         
+  // ?>
 
   <div id="requesttsView" style="display:none;">
 

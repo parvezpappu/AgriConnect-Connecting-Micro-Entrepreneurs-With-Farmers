@@ -4,12 +4,10 @@
     if(isset($_POST['reject'])){
 
         $email=$_POST['email'];
-
         if($email==""){
             echo "Invalid Request";
             exit;
         }
-
         $con=getConnection();
         $sql="DELETE FROM request WHERE Email='$email'";
         mysqli_query($con, $sql);

@@ -11,31 +11,32 @@
         $con=getConnection();
         $sql="SELECT * FROM request";
         $res=mysqli_query($con, $sql);
+        $count=mysqli_num_rows($res);
 
         $requests=[];
         while($row=mysqli_fetch_assoc($res)){
             $requests[]=$row;
         }
-        return $requests;
+        return [$requests,$count];
     }
 
 
-    function getRequestByEmail($email){
-        $con=getConnection();
-        $sql="SELECT * FROM request";
-        $res=mysqli_query($con, $sql);
+    // function getRequestByEmail($email){
+    //     $con=getConnection();
+    //     $sql="SELECT * FROM request";
+    //     $res=mysqli_query($con, $sql);
 
-        while($row=mysqli_fetch_assoc($res)){
-            if($row['Email']===$email){
-                return $row;
-            }
-        }
-        return null;
-    }
+    //     while($row=mysqli_fetch_assoc($res)){
+    //         if($row['Email']===$email){
+    //             return $row;
+    //         }
+    //     }
+    //     return null;
+    // }
 
-    function deleteRequestByEmail($email){
-        $con=getConnection();
-        $sql=" DELETE FROM request WHERE Email='$email' ";
-        return mysqli_query($con,$sql);
-    }
+    // function deleteRequestByEmail($email){
+    //     $con=getConnection();
+    //     $sql=" DELETE FROM request WHERE Email='$email' ";
+    //     return mysqli_query($con,$sql);
+    // }
     ?>

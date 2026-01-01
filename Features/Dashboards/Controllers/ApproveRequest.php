@@ -1,6 +1,7 @@
     <?php
     require_once("../../AuthenticationSystem/Models/db.php");
     require_once("../Models/RequstModels.php");
+    [$requests,$count]=getAllRequests();
 
     if(isset($_POST['approve'])){
         $email=$_POST['email'];
@@ -9,7 +10,7 @@
             exit;
         }
 
-        $requests=getAllRequests();
+        
         $selectedRequest=null;
 
         foreach($requests as $req){
