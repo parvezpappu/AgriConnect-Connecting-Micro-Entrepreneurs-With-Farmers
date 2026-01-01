@@ -14,3 +14,8 @@ function getAllEmployees(){
     }
     return [$employees,$count];
 }
+function deleteEmployee($email){
+    $con = getConnection();
+    $sql = "DELETE FROM employee WHERE Email='$email'";
+    return mysqli_query($con, $sql);
+}

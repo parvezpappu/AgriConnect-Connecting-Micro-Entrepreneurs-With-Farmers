@@ -47,7 +47,7 @@
               <h3>Welcome back  
               <?php 
               
-              echo" ", $_SESSION['FullnameShopOwner']; 
+              echo$_SESSION['FullnameShopOwner']  ; 
               ?> 
              ! Here's What's Happening Today
               </h3>
