@@ -1,40 +1,68 @@
-<?php
-session_start();
+   <?php
+   session_start();
+
+   require_once("../Models/adminModel.php");
+   require_once("../Models/EmployeeModels.php");
+   require_once("../../Dashboards/Models/FarmerModels.php");
+   require_once("../../Dashboards/Models/ShopownerModels.php");
+
    if(isset($_POST['subMit'])){
-      
-      if(isset($_SESSION['email'], $_SESSION['password'])){
-       $userEmailSignUp=$_SESSION['email'];
-       $passwordSignUp=$_SESSION['password'];
-      }
-      else{
-        $userEmailSignUp="";
-        $passwordSignUp="";
 
-      }
-      
-
+      $admin=getAdmin();
+      [$employees,$count]=getAllEmployees();
       $userEmailLogin=$_POST['email'];
-      $passwordLogin=$_POST['pasword'];
+      $passwordLogin=$_POST['pasword']; 
 
-    if($userEmailLogin==""||$passwordLogin==""){
-        echo"Null Submission !";
-    }
+      if($userEmailLogin==""||$passwordLogin==""){
+         echo "Null Submission !";
+         exit;
+      }
 
- else{
+      if($admin['Email']===$userEmailLogin&&$admin['Password'] === $passwordLogin){
+         $_SESSION['valid'] = true;
+         $_SESSION['FullnameAdmin'] = $admin['Name'];
+         setcookie("valid","true",time()+5000,"/");
+         header("location:../../Dashboards/Views/Admin.php");
+         exit;
+      }
 
-  if($userEmailSignUp===$userEmailLogin && $passwordSignUp===$passwordLogin){
-        $_SESSION['valid']=true;
-        setcookie("valid","true",time()+5000,"/");
-        header("location:../../Dashboards/Views/Employee.php");
+      
+      foreach($employees as $emp){
+         if($emp['Email']===$userEmailLogin&&$emp['Password'] === $passwordLogin){
+                $_SESSION['valid'] = true;
+                $_SESSION['FullnameEmployy'] = $emp['Name'];
+               setcookie("valid","true",time()+5000,"/");
+               header("location:../../Dashboards/Views/Employee.php");
+               exit;
+         }
+      }
 
-    }
-     else{
-     echo"Email and Password Should Be Same From SignUp";
-    }
+      [$farmers,$farmersCount]=getAllFarmers();
 
+      foreach($farmers as $farmer){
+
+         if($farmer['Email']===$userEmailLogin&&$farmer['Password'] === $passwordLogin){
+               $_SESSION['valid'] = true;
+               $_SESSION['FullnameFarmer'] = $farmer['Name'];
+               setcookie("valid","true",time()+5000,"/");
+               header("location:../../Dashboards/Views/Farmer.php");
+               exit;
+         }
+      }
+
+      [$shopOwners,$farmersCount]=getAllShopOwners();
+      foreach($shopOwners as $owner){
+
+         if($owner['Email']=== $userEmailLogin&&$owner['Password'] === $passwordLogin){
+               $_SESSION['valid'] = true;
+               setcookie("valid","true",time()+5000,"/");
+               $_SESSION['FullnameShopOwner'] = $farmer['Name'];
+               header("location:../../Dashboards/Views/ShopOwner.php");
+               exit;
+         }
+      }
+
+      echo "Invalid Email or Password";
+      exit;
    }
-}
-
-
-  
-?>
+   ?>

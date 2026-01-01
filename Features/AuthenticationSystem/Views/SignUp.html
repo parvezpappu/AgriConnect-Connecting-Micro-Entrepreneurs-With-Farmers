@@ -39,12 +39,16 @@
 
     <label id="confirmPassword" >Confirm Password : </label>
     <input type="password" name="confirmPass" id="confirmPass">
-    <br>
-    <br>
+   
 
     <label id="SignUpError"></label>
-    <br><br>
-
+    <br>
+    <label id="role">Role</label>
+    <select name="user_type" id="user_type" required>
+        <option value="ShopOwner">Shop Owner</option>
+        <option value="Farmer">Farmer</option>
+    </select><br>
+     <br><br>
     <input type="submit" name="submit" id="submit" value="Create Account">
      
     <p id="AccountText">

@@ -49,10 +49,7 @@
          <h1 id="welcomeText">Farmer DashBoard
           <h3>Welcome back  
           <?php 
-           if(!isset($_SESSION['Fullname'])){
-              $_SESSION['Fullname']="";
-           }
-          echo" ",$_SESSION['Fullname']; 
+          echo" ",$_SESSION['FullnameFarmer']; 
           ?> 
           </h3>
 

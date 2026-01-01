@@ -1,7 +1,27 @@
 
  <?php
- require("../../AuthenticationSystem/Controllers/authCheck.php");
- ?>
+  require("../../AuthenticationSystem/Controllers/authCheck.php");
+
+  require_once("../Models/RequstModels.php");
+  require_once("../Models/FarmerModels.php");
+  require_once("../Models/ShopOwnerModels.php");
+  require_once("../../AuthenticationSystem/Models/EmployeeModels.php");
+
+  [$requests, $reqCount]=getAllRequests();
+  [$farmers, $farmerCount]=getAllFarmers();
+  [$owners, $ownerCount]=getAllShopOwners();
+
+  $_SESSION['CountOfRequest']= $reqCount;
+  $_SESSION['countOfFarmer']= $farmerCount;
+  $_SESSION['countOfShopOwner']= $ownerCount;
+   
+
+
+
+?>
+
+
+
 
  <!DOCTYPE html>
  <html lang="en">
@@ -29,7 +49,9 @@
           <button id="products">Products</button>
           <br>
           <br>
-          <button id="reports">Request</button>
+          <button id="reports">Requests (
+            <?php echo$_SESSION['CountOfRequest']?>)
+           </button>
           <br>
           <br>
           <button id="setting">Settings</button>
@@ -46,20 +68,14 @@
         </div>
 
         <div id="middleDashBoard">
-           <?php include("EmoloyeeFarmer.php");?>
-           <?php include("EmployeeProduct.php");?>
-           <?php include("EmoloyeeshooOwner.php");?>
-           <?php include("EmployeeRequest.php");?>
-           <?php include("EmployeeSetting.php");?>
+           <?php include_once("EmoloyeeFarmer.php");?>
+           <?php include_once("EmployeeProduct.php");?>
+           <?php include_once("EmoloyeeshooOwner.php");?>
+           <?php include_once("EmployeeRequest.php");?>
+           <?php include_once("EmployeeSetting.php");?>
            <div id="dashboardView">
          <h1 id="welcomeText">Employee DashBoard
-          <h3>Welcome back  
-          <?php 
-           if(!isset($_SESSION['Fullname'])){
-              $_SESSION['Fullname']="";
-           }
-          echo" ",$_SESSION['Fullname']; 
-          ?> 
+          <h3>Welcome back  <?php echo$_SESSION['FullnameEmployy']?> 
           </h3>
 
          </h1>
@@ -69,13 +85,14 @@
             <p id="totalfarmers">
             Total Farmers
             <br>
-            1200
+          <?php   echo$_SESSION['countOfFarmer']?>
             </p>
 
             <p id="totalBuyer">
-            Total Buyer
+            Total Shops
             <br>
-            120
+            
+            <?php echo$_SESSION['countOfShopOwner']?>
             </p>
           </div>
           </div>

@@ -3,6 +3,8 @@
  require_once("../../AuthenticationSystem/Controllers/authCheck.php");
  ?>
 
+
+
  <!DOCTYPE html>
  <html lang="en">
  <head>
@@ -52,10 +54,7 @@
            <h1 id="welcomeText">Admin DashBoard
           <h3>Welcome back  
           <?php 
-           if(!isset($_SESSION['Fullname'])){
-              $_SESSION['Fullname']="";
-           }
-          echo" ",$_SESSION['Fullname']; 
+           echo$_SESSION['FullnameAdmin'];
           ?> 
          ! Here's What's Happening Today
           </h3>
@@ -67,19 +66,19 @@
             <p id="totalfarmers">
             Total Farmers
             <br>
-            1200
+          <?php  echo$_SESSION['countOfFarmer']?>
             </p>
 
             <p id="totalBuyer">
-            Total Buyer
+            Total Shops
             <br>
-            120
+            <?php echo$_SESSION['countOfShopOwner'] ?>
             </p>
 
             <p id="totalEmployee">
             Total Employee
             <br>
-            90
+          <?php  echo$_SESSION['CountEmployee']?>
             </p>
           </div>
           </div>
