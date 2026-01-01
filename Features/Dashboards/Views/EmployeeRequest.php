@@ -2,7 +2,9 @@
   require_once("../Models/RequstModels.php");
 
   [$requests,$countofRequest] = getAllRequests();
-  $_SESSION['CountOfRequest']=$countofRequest;         
+  $_SESSION['CountOfRequest']=$countofRequest; 
+  $_SESSION['hideDashboard'] = true;
+        
   // ?>
 
   <div id="requesttsView" style="display:none;">

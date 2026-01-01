@@ -1,13 +1,13 @@
-<?php
-require_once("../Models/ShopOwnerModels.php");
+    <?php
+    require_once("../Models/ShopOwnerModels.php");
 
-if (isset($_POST['shopEmail'])) {
-    deleteShopOwner($_POST['shopEmail']);
-}
+    if (isset($_POST['shopEmail'])) {
+        deleteShopOwner($_POST['shopEmail']);
+    }
 
-[$shopOwners, $shopOwnerCount] = getAllShopOwners();
-$_SESSION['countOfShopOwner'] = $shopOwnerCount;
-?>
+    [$shopOwners,$shopOwnerCount]=getAllShopOwners();
+    $_SESSION['countOfShopOwner']=$shopOwnerCount;
+    ?>
 
 <div id="shopOwnerView" style="display:none;">
   <h1>Shop Owners</h1>
@@ -23,25 +23,38 @@ $_SESSION['countOfShopOwner'] = $shopOwnerCount;
     </thead>
 
     <tbody>
-    <?php if (!empty($shopOwners)) { ?>
-        <?php foreach ($shopOwners as $owner) { ?>
+    <?php
+     if (!empty($shopOwners)) { 
+     ?>
+    <?php 
+        foreach($shopOwners as $owner) { 
+            ?>
             <tr>
-                <td><?= $owner['Name'] ?></td>
-                <td><?= $owner['Address'] ?></td>
-                <td><?= $owner['Email'] ?></td>
                 <td>
-                    <form method="post">
-                    <input type="hidden" name="shopEmail" value="<?= $owner['Email'] ?>">
+                <?=$owner['Name']?></td>
+                <td><?=$owner['Address']?></td>
+                <td><?=$owner['Email']?></td>
+                <td>
+                    <form   method="post">
+                    <input  type="hidden"name="shopEmail" value="<?= $owner['Email'] ?>">
                     <button type="submit">Delete</button>
                     </form>
                 </td>
             </tr>
-        <?php } ?>
-    <?php } else { ?>
-        <tr>
-            <td colspan="4" style="text-align:center;">No shop owners found</td>
-        </tr>
-    <?php } ?>
+        <?php 
+        } 
+        
+        ?>
+    <?php 
+  }
+ else
+ { ?>
+    <tr>
+    <td colspan="4" style="text-align:center;">No shop owners found</td>
+    </tr>
+    <?php 
+} 
+?>
     </tbody>
   </table>
 </div>

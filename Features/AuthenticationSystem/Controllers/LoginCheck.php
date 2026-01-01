@@ -55,8 +55,8 @@
 
          if($owner['Email']=== $userEmailLogin&&$owner['Password'] === $passwordLogin){
                $_SESSION['valid'] = true;
+               $_SESSION['FullnameShopOwner']=$owner['Name'];
                setcookie("valid","true",time()+5000,"/");
-               $_SESSION['FullnameShopOwner'] = $farmer['Name'];
                header("location:../../Dashboards/Views/ShopOwner.php");
                exit;
          }
