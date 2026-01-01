@@ -1,5 +1,5 @@
 <?php
-require_once('db.php');
+require_once('../../AuthenticationSystem/Models/db.php');
 
 /*function login($user){
     $con = getConnection();

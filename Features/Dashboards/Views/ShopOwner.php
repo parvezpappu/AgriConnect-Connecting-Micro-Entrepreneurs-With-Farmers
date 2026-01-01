@@ -46,10 +46,8 @@
              <h1 id="welcomeText">ShopOwner DashBoard
               <h3>Welcome back  
               <?php 
-               if(!isset($_SESSION['Fullname'])){
-                  $_SESSION['Fullname']="";
-               }
-              echo" ",$_SESSION['Fullname']; 
+              
+              echo$_SESSION['FullnameShopOwner']  ; 
               ?> 
              ! Here's What's Happening Today
               </h3>
