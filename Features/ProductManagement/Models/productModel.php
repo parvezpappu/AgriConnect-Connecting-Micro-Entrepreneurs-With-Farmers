@@ -32,15 +32,18 @@ function getProductById($id){
 
 }
 
-/*function addProduct($user){
-    $con = getConnection();
-    $sql = "insert into users values(null, '{$user['username']}', '{$user['password']}', '{$user['email']}')";
+function addProduct($productName, $category, $price, $stock, $status, $image){
+    $con= getConnection();
+    $sql= "insert into allproducts(productName, category, price, stock, status, image) 
+            values ('$productName', '$category', '$price', '$stock', '$status', '$image')";
+    
     if(mysqli_query($con, $sql)){
         return true;
+
     }else{
         return false;
     }  
-}*/
+}
 
 function deleteProduct($id){
 

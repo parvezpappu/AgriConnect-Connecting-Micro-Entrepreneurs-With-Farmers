@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 31, 2025 at 09:26 PM
+-- Generation Time: Jan 01, 2026 at 02:38 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -28,6 +28,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `admin` (
+  `Name` varchar(50) NOT NULL,
   `Email` varchar(75) NOT NULL,
   `Password` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -36,8 +37,8 @@ CREATE TABLE `admin` (
 -- Dumping data for table `admin`
 --
 
-INSERT INTO `admin` (`Email`, `Password`) VALUES
-('mdparveahmedpappu@gmail.com', 'pappu');
+INSERT INTO `admin` (`Name`, `Email`, `Password`) VALUES
+('Parvez', 'mdparveahmedpappu@gmail.com', 'pappu');
 
 -- --------------------------------------------------------
 
@@ -46,6 +47,7 @@ INSERT INTO `admin` (`Email`, `Password`) VALUES
 --
 
 CREATE TABLE `employee` (
+  `Name` varchar(50) NOT NULL,
   `Email` varchar(50) NOT NULL,
   `Password` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -54,10 +56,12 @@ CREATE TABLE `employee` (
 -- Dumping data for table `employee`
 --
 
-INSERT INTO `employee` (`Email`, `Password`) VALUES
-('Ehsan@gmail.com', 'ehsan'),
-('Parvez@gmail.com', 'parvez'),
-('Sadid@gmail.com', 'sadid');
+INSERT INTO `employee` (`Name`, `Email`, `Password`) VALUES
+('Ehsan', 'Ehsan@gmail.com', 'ehsan'),
+('Parvez2', 'Parvez2@gmail.com', 'parvez'),
+('Parvez', 'Parvez@gmail.com', 'parvez'),
+('Sadid2', 'Sadid2@gmail.com', 'sadid'),
+('Sadid', 'Sadid@gmail.com', 'sadid');
 
 -- --------------------------------------------------------
 
@@ -78,8 +82,10 @@ CREATE TABLE `farmer` (
 --
 
 INSERT INTO `farmer` (`Name`, `Email`, `Address`, `Password`, `Role`) VALUES
-('ibtezzaman', 'ib@gmail.com', 'kuril', '123', 'Farmer'),
-('Parvez Pappu', 'mdparveahmedpappu@gmail.com', 'dhaka', '12', 'Farmer');
+('Alamin', 'alamin@gmail.com', 'dhaka', 'alamin', 'Farmer'),
+('ehsan1', 'ehsan1@gmail.com', 'kuratoli Bosti', '123', 'Farmer'),
+('akil', 'mdarveahmedpappu@gmail.com', 'dhaka', 'dd', 'Farmer'),
+('pappu', 'pappu@gmail.com', 'dhaka', '1234', 'Farmer');
 
 -- --------------------------------------------------------
 
@@ -115,7 +121,8 @@ CREATE TABLE `shopowner` (
 
 INSERT INTO `shopowner` (`Name`, `Email`, `Address`, `Password`, `Role`) VALUES
 ('akil', 'akil@gmail.com', 'dhaka', '21', 'ShopOwner'),
-('sadid2', 'sadid2@gmail.com', 'dd', '12', 'ShopOwner');
+('akil', 'mdparveahmedpappu@gmail.com', 'dhaka', 'dd', 'ShopOwner'),
+('pappu4', 'pappu4@gmail.com', 'dhaka', '123', 'ShopOwner');
 
 --
 -- Indexes for dumped tables

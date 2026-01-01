@@ -44,7 +44,7 @@
         <div id="middleDashBoard">
           
           <?php include("AdminUsers.php");?>
-          <?php include("../../ProductManagement/Views/AdminProducts.php");?>
+          <?php include("AdminProducts.php");?>
           <?php include("AdminOrders.php");?>
           <?php include("AdminSettings.php");?>
 

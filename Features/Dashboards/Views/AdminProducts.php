@@ -1,12 +1,12 @@
 <?php
-require_once('../Models/productModel.php');
-$result = getAllProduct();
+require_once('../../ProductManagement/Models/productModel.php');
+$res = getAllProduct();
 ?>
 
 <div id="productsView" style="display:none;">
-<link rel="stylesheet" href="../Assets/AdminProducts.css">
-  <h1>All Products</h1>
+<link rel="stylesheet" href="../Assets/Admin.css">
 
+  <h1>All Products</h1>
  
   <table border="1" width="100%">
     <tr>
@@ -21,7 +21,7 @@ $result = getAllProduct();
     
     <?php
 
-    while($row=mysqli_fetch_assoc($result)){
+    while($row=mysqli_fetch_assoc($res)){
 
     ?>
 
@@ -33,7 +33,7 @@ $result = getAllProduct();
       <td><?php echo $row['stock'] ?></td>
       <td><?php echo $row['status'] ?></td>
       <td>
-        <img height="80" width="80"  src="../Assets/<?php echo $row['image'] ?>">
+        <img height="50" width="50"  src="../../ProductManagement/Assets/<?php echo $row['image'] ?>" alt="No image">
       </td>
     </tr>
 
@@ -43,4 +43,7 @@ $result = getAllProduct();
     ?>
 
   </table>
+  <a href="../../ProductManagement/Views/AddProduct.php">
+  <button id="addProduct">Add Product</button>
+</a>
 </div>
