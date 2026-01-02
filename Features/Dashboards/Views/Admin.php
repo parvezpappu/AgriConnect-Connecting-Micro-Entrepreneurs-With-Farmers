@@ -12,6 +12,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="../Assets/Admin.css">
+    <link rel="stylesheet" href="../../User_Profile_Management/Assets/AdminProfile.css">
  </head>
  <body>
      <div id="dashboardComponent">
@@ -44,11 +45,13 @@
           <a href="../../AuthenticationSystem/Controllers/Logout.php" id="logOut">Logout</a>
         </div>
         <div id="middleDashBoard">
+          <?php include_once("../../User_Profile_Management/Views/AdminProfile.php");?>
+          <?php include_once("AdminUsers.php");?>
+          <?php include_once("AdminProducts.php");?>
+          <?php include_once("AdminOrders.php");?>
+          <?php include_once("AdminSettings.php");?>
           
-          <?php include("AdminUsers.php");?>
-          <?php include("AdminProducts.php");?>
-          <?php include("AdminOrders.php");?>
-          <?php include("AdminSettings.php");?>
+
 
           <div id="dashboardView">
            <h1 id="welcomeText">Admin DashBoard

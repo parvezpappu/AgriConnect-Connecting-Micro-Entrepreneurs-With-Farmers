@@ -21,6 +21,7 @@
       if($admin['Email']===$userEmailLogin&&$admin['Password'] === $passwordLogin){
          $_SESSION['valid'] = true;
          $_SESSION['FullnameAdmin'] = $admin['Name'];
+         $_SESSION['AdminEmail'] = $admin['Email'];
          setcookie("valid","true",time()+5000,"/");
          header("location:../../Dashboards/Views/Admin.php");
          exit;
@@ -31,6 +32,7 @@
          if($emp['Email']===$userEmailLogin&&$emp['Password'] === $passwordLogin){
                 $_SESSION['valid'] = true;
                 $_SESSION['FullnameEmployy'] = $emp['Name'];
+                $_SESSION['EmployeeEmail'] = $emp['Email'];
                setcookie("valid","true",time()+5000,"/");
                header("location:../../Dashboards/Views/Employee.php");
                exit;
@@ -44,6 +46,7 @@
          if($farmer['Email']===$userEmailLogin&&$farmer['Password'] === $passwordLogin){
                $_SESSION['valid'] = true;
                $_SESSION['FullnameFarmer'] = $farmer['Name'];
+               $_SESSION['FarmerEmail'] = $farmer['Email'];
                setcookie("valid","true",time()+5000,"/");
                header("location:../../Dashboards/Views/Farmer.php");
                exit;
@@ -56,6 +59,7 @@
          if($owner['Email']=== $userEmailLogin&&$owner['Password'] === $passwordLogin){
                $_SESSION['valid'] = true;
                $_SESSION['FullnameShopOwner']=$owner['Name'];
+               $_SESSION['ShopOwnerEmail'] = $owner['Email'];
                setcookie("valid","true",time()+5000,"/");
                header("location:../../Dashboards/Views/ShopOwner.php");
                exit;

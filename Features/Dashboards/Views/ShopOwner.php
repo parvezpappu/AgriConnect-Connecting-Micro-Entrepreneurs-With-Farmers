@@ -10,7 +10,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Buyer Portal</title>
     <link rel="stylesheet" href="../Assets/ShopOwner.css">
- </head>
+     <link rel="stylesheet" href="../../User_Profile_Management/Assets/ShopOwnerProfile.css">
+  </head>
  <body>
      <div id="dashboardComponent">
          
@@ -39,7 +40,8 @@
         </div>
 
         <div id="middleDashBoard">
-         <?php include("ShopOwnerProducts.php");?>
+          <?php include_once("../../User_Profile_Management/Views/ShopOwnerProfile.php");?>
+          <?php include("ShopOwnerProducts.php");?>
           <?php include("ShopOwnerOrders.php");?>
           <?php include("ShopOwnerSettings.php");?>
              <div id="dashboardView">

@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="../Assets/Farmer.css">
-
+    <link rel="stylesheet" href="../../User_Profile_Management/Assets/FarmerProfile.css">
  </head>
  <body>
      <div id="dashboardComponent">
@@ -41,7 +41,7 @@
         </div>
 
         <div id="middleDashBoard">
-           
+           <?php include_once("../../User_Profile_Management/Views/FarmerProfile.php");?>
             <?php include("FarmerOrders.php");?>
             <?php include("FarmerProducts.php");?>
             <?php include("FarmerSetting.php");?>
