@@ -1,0 +1,47 @@
+#adminProfileView {
+    background-color: rgb(219, 212, 220);
+    border-radius: 15px;
+    padding: 20px;
+    width: 400px;
+    margin: 20px auto;
+}
+
+#adminProfileView h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#adminProfileView form {
+    display: flex;
+    flex-direction: column;
+}
+
+#adminProfileView label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+#adminProfileView input[type="text"] {
+    height: 35px;
+    padding: 5px;
+    border-radius: 8px;
+    border: 1px solid black;
+    margin-bottom: 15px;
+}
+
+#adminProfileView input[readonly] {
+    background-color: #e0e0e0;
+}
+
+#adminProfileView button {
+    cursor: pointer;
+    height: 40px;
+    border-radius: 10px;
+    border: 1px solid black;
+    background-color: white;
+    font-weight: bold;
+}
+
+#adminProfileView button:hover {
+    background-color: lightgreen;
+}
