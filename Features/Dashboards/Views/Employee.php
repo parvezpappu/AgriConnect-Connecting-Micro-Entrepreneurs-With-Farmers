@@ -30,7 +30,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="../Assets/Employee.css">
-
+    <link rel="stylesheet" href="../../User_Profile_Management/Assets/EmployeeProfile.css">
  </head>
  <body>
      <div id="dashboardComponent">
@@ -68,6 +68,7 @@
         </div>
 
         <div id="middleDashBoard">
+           <?php include_once("../../User_Profile_Management/Views/EmployeeProfile.php");?>
            <?php include_once("EmoloyeeFarmer.php");?>
            <?php include_once("EmployeeProduct.php");?>
            <?php include_once("EmoloyeeshooOwner.php");?>
