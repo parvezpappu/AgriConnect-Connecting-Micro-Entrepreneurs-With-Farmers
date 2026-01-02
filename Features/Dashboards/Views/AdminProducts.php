@@ -33,7 +33,7 @@ $res = getAllProduct();
       <td><?php echo $row['stock'] ?></td>
       <td><?php echo $row['status'] ?></td>
       <td>
-        <img height="50" width="50"  src="../../ProductManagement/Assets/<?php echo $row['image'] ?>" alt="No image">
+        <img height="80" width="80"  src="../../ProductManagement/Assets/<?php echo $row['image'] ?>">
       </td>
     </tr>
 
@@ -43,7 +43,12 @@ $res = getAllProduct();
     ?>
 
   </table>
-  <a href="../../ProductManagement/Views/AddProduct.php">
-  <button id="addProduct">Add Product</button>
-</a>
+
+  <div id="productButton">
+    <button id="addProduct" onclick="location.href='../../ProductManagement/Views/AddProduct.php'">Add Product</button>
+    <button id="updateProduct" onclick="location.href='../../ProductManagement/Views/UpdateProduct.php'">Update Product</button>
+    <button id="deleteProduct" onclick="location.href='../../ProductManagement/Views/DeleteProduct.php'">Delete Product</button>
+
+  </div>
+
 </div>

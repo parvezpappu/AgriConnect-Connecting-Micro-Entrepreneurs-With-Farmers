@@ -1,18 +1,6 @@
 <?php
 require_once('../../AuthenticationSystem/Models/db.php');
 
-/*function login($user){
-    $con = getConnection();
-    $sql = "select * from users where username='{$user['username']}' and password='{$user['password']}'";
-    $result = mysqli_query($con, $sql);
-    $count = mysqli_num_rows($result);
-
-    if($count == 1){
-        return true;
-    }else{
-        return false;
-    }
-}*/
 
 function getAllProduct(){
     $con = getConnection();
@@ -28,9 +16,6 @@ function getAllProduct(){
 
 }
 
-function getProductById($id){
-
-}
 
 function addProduct($productName, $category, $price, $stock, $status, $image){
     $con= getConnection();
@@ -46,11 +31,15 @@ function addProduct($productName, $category, $price, $stock, $status, $image){
 }
 
 function deleteProduct($id){
+    $con=getConnection();
+    $sql="delete from allproducts where productID='$id'";
 
-}
-
-function updateProduct($user){
-    
+    if(mysqli_query($con, $sql)){
+        return true;
+    }
+    else{
+        return false;
+    }
 }
 
 ?>

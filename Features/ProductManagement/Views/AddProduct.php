@@ -1,6 +1,29 @@
 <?php
 require_once('../Models/productModel.php');
-//$add=addProduct();
+
+if(isset($_POST['submit'])){
+
+    $productName=$_POST['productName'];
+    $category=$_POST['category'];
+    $price=$_POST['price'];
+    $stock=$_POST['stock'];
+    $status=$_POST['status'];
+    
+    
+    $src=  $_FILES['image']['tmp_name'];
+    $ext = explode('.', $_FILES['image']['name']);
+    $index = count($ext) -1;
+    $name = time().".".$ext[$index];
+    $des = '../Assets/'.$name;
+    move_uploaded_file($src, $des);
+
+    $product=addProduct($productName, $category, $price, $stock, $status, $name);
+    if($product) {
+        echo "Successfully added!";
+    }else{
+        echo "Error!";
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -60,32 +83,3 @@ require_once('../Models/productModel.php');
     <a href="../../Dashboards/Views/Admin.php" id="back">Back</a>
 </body>
 </html>
-
-<?php
-
-if(isset($_POST['submit'])){
-
-    //$productId=$_POST['productID'];
-    $productName=$_POST['productName'];
-    $category=$_POST['category'];
-    $price=$_POST['price'];
-    $stock=$_POST['stock'];
-    $status=$_POST['status'];
-    
-    
-    $src=  $_FILES['image']['tmp_name'];
-    $ext = explode('.', $_FILES['image']['name']);
-    $index = count($ext) -1;
-    $name = time().".".$ext[$index];
-    $des = '../Assets/'.$name;
-    move_uploaded_file($src, $des);
-
-    $product=addProduct($productName, $category, $price, $stock, $status, $name);
-    if($product) {
-        echo "success";
-    }else{
-        echo "error";
-    }
-}
-
-?>
