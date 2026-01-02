@@ -50,6 +50,7 @@
           <?php include_once("AdminProducts.php");?>
           <?php include_once("AdminOrders.php");?>
           <?php include_once("AdminSettings.php");?>
+          <?php include_once("../../ProductManagement/Views/DeleteProduct.php");?>
           
 
 
