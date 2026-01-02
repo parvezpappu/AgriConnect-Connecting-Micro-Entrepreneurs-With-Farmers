@@ -1,0 +1,39 @@
+.title{
+    margin-top: 70px;
+    padding: 10px;
+
+}
+
+.form{
+    margin-left: 30%;
+
+}
+label{
+    display: inline-block;
+    width: 150px;
+    font-size: 15px;
+}
+
+.productTable{
+    padding: 15px;
+}
+.input{
+    width: 30%;
+    padding: 12px;
+    resize: vertical;
+    box-sizing: border-box;
+}
+
+#back{
+    position: fixed;
+    bottom: 24px;
+    left: 24px;
+    padding: 12px 18px;
+    border: 1px solid black;
+    background: white;
+    color: black;
+    border-radius: 8px;
+    font-size: 16px;
+    text-decoration: none;
+    display: inline-block;
+}

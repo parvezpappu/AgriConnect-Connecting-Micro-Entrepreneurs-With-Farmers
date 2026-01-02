@@ -112,15 +112,10 @@
 
 }
 
-
 #infoOverAll{
     display: flex;
     justify-content: space-evenly;
 }
-
-
-
-
 
 #middleDashBoard{
     background-color: rgb(219, 212, 220);  
@@ -151,3 +146,58 @@
     text-align: center;
     margin-left: 35px;
 }
+
+#productButton{
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+    gap: 14px;
+}
+
+#addProduct{
+    background-color: rgb(72, 183, 94);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#updateProduct{
+    background-color: rgb(72, 183, 94);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#deleteProduct{
+    background-color: rgb(72, 183, 94);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#deleteButton {
+    background-color: rgb(180, 38, 38);
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  #back{
+    display: inline-block; 
+    margin-top: 20px; 
+    padding: 10px 20px; 
+    background: white;
+    color: black;
+    border-radius: 8px;
+    font-size: 16px;
+    text-decoration: none;
+    display: inline-block;
+  }
