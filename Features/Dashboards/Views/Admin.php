@@ -1,6 +1,6 @@
 
  <?php
- require_once("../../AuthenticationSystem/Controllers/authCheck.php");
+ //require_once("../../AuthenticationSystem/Controllers/authCheck.php");
  ?>
 
 
