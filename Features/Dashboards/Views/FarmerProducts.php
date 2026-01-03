@@ -43,7 +43,7 @@ else{
 
                 <div class="searchbtn">
                     <button type="submit">Search</button>
-                    <a href="Farmer.php?page=products">Clear</a>
+                    <a href="Farmer.php?page=products" class="clearbtn">Clear</a>
                 </div>
             </form>
         </div>

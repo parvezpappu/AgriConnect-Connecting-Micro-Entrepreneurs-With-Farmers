@@ -217,8 +217,8 @@
     margin-top: 20px; 
     padding: 10px 20px; 
     background: rgb(25, 148, 54);
-    color: black;
-    border-radius: 8px;
+    color: white;
+    border-radius: 4px;
     font-size: 16px;
     text-decoration: none;
     display: inline-block;
@@ -236,10 +236,28 @@ gap: 10px;
     width: 300px;
 }
 
+.searchbtn{
+    margin: 12px;
+    display: inline-flex;
+    gap: 10px;
+}
+
 .search button{
-padding: 10px 20px;
-background: rgb(25, 148, 54);
-color: white;
-border: none;
-border-radius: 4px;
+    padding: 10px 20px;
+    background: rgb(25, 148, 54);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.clearbtn{
+    padding: 10px 20px;
+    background: rgb(25, 148, 54);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 14px;
+
 }
