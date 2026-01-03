@@ -105,6 +105,21 @@
     text-align: center;
 
 }
+
+
+
+#ShopOwnerProducts{
+    cursor: pointer;
+    border: 1px solid black;;
+    padding: 5px;
+    border-radius: 10px;
+    height: 60px;
+    width: 150px;          
+    text-align: center;
+}
+
+
+
 #totalfarmers{
      border: 1px solid black;
      border-radius: 10px;
@@ -203,6 +218,23 @@
     cursor: pointer;
 }
 
+#deleteProduct{
+    background-color: rgb(72, 183, 94);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#CartButton{
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+    gap: 14px;
+}
+
+
 #deleteButton{
     background-color: rgb(180, 38, 38);
     color: white;
@@ -212,14 +244,44 @@
     cursor: pointer;
   }
 
+
   #back{
     display: inline-block; 
     margin-top: 20px; 
+    margin-right: 10px;
+    padding: 5px; 
+    background: white;
+    border: 1px solid black;
     padding: 10px 20px; 
     background: rgb(25, 148, 54);
     color: black;
     border-radius: 8px;
+    color: black;
     font-size: 16px;
     text-decoration: none;
-    display: inline-block;
   }
+
+
+
+
+#AddToCart {
+    background-color: rgb(18, 165, 55);
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+#showCart{
+    background: white;
+    color: black;
+    font-size: 20 px;
+    text-decoration: none;
+    padding : 5px;
+    border: 1px solid black;
+    border-radius: 8px;
+    margin: 10px;
+}
+

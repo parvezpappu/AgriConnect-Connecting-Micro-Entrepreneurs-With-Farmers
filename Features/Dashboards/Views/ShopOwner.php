@@ -41,9 +41,10 @@
 
         <div id="middleDashBoard">
           <?php include_once("../../User_Profile_Management/Views/ShopOwnerProfile.php");?>
-          <?php include("ShopOwnerProducts.php");?>
+          
           <?php include("ShopOwnerOrders.php");?>
           <?php include("ShopOwnerSettings.php");?>
+          <?php include_once("ShopOwnerProducts.php");?>
              <div id="dashboardView">
              <h1 id="welcomeText">ShopOwner DashBoard
               <h3>Welcome back  
