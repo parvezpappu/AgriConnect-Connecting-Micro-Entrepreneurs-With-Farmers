@@ -6,8 +6,8 @@
 
 .form{
     margin-left: 30%;
-
 }
+
 label{
     display: inline-block;
     width: 150px;
@@ -30,7 +30,7 @@ label{
     left: 24px;
     padding: 12px 18px;
     border: 1px solid black;
-    background: white;
+    background: rgb(25, 148, 54);
     color: black;
     border-radius: 8px;
     font-size: 16px;

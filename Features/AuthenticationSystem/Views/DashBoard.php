@@ -1,5 +1,3 @@
-
-     
     <?php
     require_once("../Controllers/authCheck.php");
     echo'welcome';

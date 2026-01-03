@@ -1,11 +1,10 @@
 <?php
-session_start();
+//session_start();
 require_once('../../ProductManagement/Models/productModel.php');
 require_once('../../CartAndCheckout/Models/ProductcartModel.php');
 
 if(isset($_POST['productID']))
  {
- 
      $productID = $_POST['productID'];
      $productName = $_POST['productName'];
      $productPrice = $_POST['productPrice'];
@@ -31,31 +30,9 @@ if(isset($_POST['productID']))
 </head>
 <body>
 
-  <div id="dashboardComponent">
+  <div id="productsView">
          
-      <div id="LeftBarDashBoard">
-        <h2>AgriConnect</h2>
-        <button id="dashboard">DashBoard</button>
-        <br>
-        <br>
-        <button id="products">Products</button>
-        <br>
-        <br>
-        <button id="orders">Orders</button>  
-        <br>
-        <br>
-        <button id="setting">Settings</button>
-        <br>
-        <br>
-        <button id="ShopOwnerProducts"> Profile <br>ShopOwner
-          <br> Agriconnect
-        </button>
-        <br>
-        <br>
-        
-        <a href="../../AuthenticationSystem/Controllers/Logout.php" id="logOut">Logout</a>
-      </div>
-    
+      
       <div id="middleDashBoard">
     
         <h1>All Products</h1>

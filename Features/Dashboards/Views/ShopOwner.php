@@ -41,7 +41,7 @@
 
         <div id="middleDashBoard">
           <?php include_once("../../User_Profile_Management/Views/ShopOwnerProfile.php");?>
-          <?php include("ShopOwnerProducts.php");?>
+          
           <?php include("ShopOwnerOrders.php");?>
           <?php include("ShopOwnerSettings.php");?>
              <div id="dashboardView">
@@ -60,11 +60,12 @@
         </div>
             </div>
 
-        <div id="rightDashBoard">
+        <!--<div id="rightDashBoard">
             <h1>Notifications</h1>
             <p>Your orders has been delivers</p>
             <p>Your  order is processing</p>
         </div>
+-->
 
      </div>
      <script src="../Assets/ShopOwner.js"></script>

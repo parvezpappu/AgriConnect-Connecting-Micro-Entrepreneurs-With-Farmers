@@ -1,5 +1,4 @@
-
- <?php
+<?php
   require("../../AuthenticationSystem/Controllers/authCheck.php");
 
   require_once("../Models/RequstModels.php");
@@ -15,13 +14,7 @@
   $_SESSION['countOfFarmer']= $farmerCount;
   $_SESSION['countOfShopOwner']= $ownerCount;
    
-
-
-
 ?>
-
-
-
 
  <!DOCTYPE html>
  <html lang="en">
@@ -99,11 +92,11 @@
           </div>
         </div>
 
-        <div id="rightDashBoard">
+        <!--<div id="rightDashBoard">
             <h1>Notifications</h1>
             <p>Farmer Request For Payment</p>
             <p>Order Placed From Farmer</p>
-        </div>
+        </div>-->
 
      </div>
       <script src="../Assets/Employee.js"></script>
