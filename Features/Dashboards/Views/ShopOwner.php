@@ -44,6 +44,7 @@
           
           <?php include("ShopOwnerOrders.php");?>
           <?php include("ShopOwnerSettings.php");?>
+          <?php include_once("ShopOwnerProducts.php");?>
              <div id="dashboardView">
              <h1 id="welcomeText">ShopOwner DashBoard
               <h3>Welcome back  
