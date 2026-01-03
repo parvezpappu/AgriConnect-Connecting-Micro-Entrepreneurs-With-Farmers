@@ -1,10 +1,13 @@
-
-  const dashBoard = document.getElementById("dashboard");
+const dashBoard = document.getElementById("dashboard");
   const employee = document.getElementById("users");
   const products = document.getElementById("products");
   const orders = document.getElementById("orders");
   const setting = document.getElementById("setting");
   const adminBtn = document.getElementById("admin");
+  const farmers = document.getElementById("farmers");
+  const shopOwner = document.getElementById("shopOwener");
+  const reports = document.getElementById("reports");
+
 
 
   const dashboardView = document.getElementById("dashboardView");
@@ -13,6 +16,9 @@
   const ordersView = document.getElementById("ordersView");
   const settingView = document.getElementById("settingView");
   const adminProfileView = document.getElementById("adminProfileView");
+  const farmersView = document.getElementById("farmersView");
+  const reportsView = document.getElementById("requesttsView");
+  const shopOwnerView = document.getElementById("shopOwnerView");
 
   
   function showOnly(view) {
@@ -23,6 +29,9 @@
      ordersView.style.display="none";
      settingView.style.display="none";
      adminProfileView.style.display="none";
+     farmersView.style.display="none";
+    shopOwnerView.style.display="none";
+    reportsView.style.display="none";
 
     if(view){
         view.style.display="block";
@@ -38,6 +47,9 @@
       orders.style.backgroundColor = "";
       setting.style.backgroundColor = "";
       adminBtn.style.backgroundColor = "";
+      farmers.style.backgroundColor="";
+       shopOwner.style.backgroundColor="";
+       reports.style.backgroundColor="";
 
     if(active){
       active.style.backgroundColor ="green";
@@ -63,6 +75,24 @@
 
   }
 
+  if(farmers){
+
+    farmers.addEventListener("click",()=>{
+        showOnly(farmersView);
+        ColorChange(farmers);
+    });
+
+    }
+
+    if(shopOwner){
+
+    shopOwner.addEventListener("click",() =>{
+        showOnly(shopOwnerView);
+        ColorChange(shopOwner);
+    });
+
+    }
+
   if (products){
 
       products.addEventListener("click", () => {
@@ -79,6 +109,15 @@
       ColorChange(orders);
     });
   }
+
+  if(reports){
+
+    reports.addEventListener("click",()=>{
+        showOnly(reportsView);
+        ColorChange(reports);
+    });
+
+    }
 
   if (setting) {
 

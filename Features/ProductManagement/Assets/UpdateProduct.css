@@ -1,0 +1,59 @@
+#back{
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: rgb(25, 148, 54);
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.updateForm {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    max-width: 600px;
+    margin: 20px auto;
+}
+
+.formTitle{
+    margin-bottom: 15px;
+}
+
+.label{
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.formTitle input,
+.formTitle select{
+    width: 100%;
+    padding: 8px;
+    border: 1px solid rgb(204, 204, 204);
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.submit{
+    background-color: rgb(40, 167, 69);
+    color: white;
+    border: none;
+    padding: 10px 30px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+.cancel{
+    background-color: rgb(180, 38, 38);
+    color: white;
+    border: none;
+    padding: 10px 30px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-left: 10px;
+    text-decoration: none;
+}

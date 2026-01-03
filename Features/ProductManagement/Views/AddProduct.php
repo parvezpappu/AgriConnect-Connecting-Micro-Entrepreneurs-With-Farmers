@@ -9,7 +9,6 @@ if(isset($_POST['submit'])){
     $stock=$_POST['stock'];
     $status=$_POST['status'];
     
-    
     $src=  $_FILES['image']['tmp_name'];
     $ext = explode('.', $_FILES['image']['name']);
     $index = count($ext) -1;
@@ -18,9 +17,10 @@ if(isset($_POST['submit'])){
     move_uploaded_file($src, $des);
 
     $product=addProduct($productName, $category, $price, $stock, $status, $name);
-    if($product) {
+    if($product){
         echo "Successfully added!";
-    }else{
+    }
+    else{
         echo "Error!";
     }
 }
@@ -43,7 +43,6 @@ if(isset($_POST['submit'])){
     <div class="form">
         <form method="POST" action="" enctype="multipart/form-data">
             
-
             <div class="productTable">
                 <label>Product Name: </label>
                 <input type="text" name="productName" id="productName">
