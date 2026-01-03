@@ -223,3 +223,23 @@
     text-decoration: none;
     display: inline-block;
   }
+
+.search{
+margin: 20px;
+gap: 10px;
+}
+
+.search input[type="text"]{
+    padding: 10px 15px;
+    border: 1px solid black;
+    border-radius: 4px;
+    width: 300px;
+}
+
+.search button{
+padding: 10px 20px;
+background: rgb(25, 148, 54);
+color: white;
+border: none;
+border-radius: 4px;
+}

@@ -1,5 +1,6 @@
 <?php
 require_once('../../ProductManagement/Models/productModel.php');
+require_once('../../ProductBrowsing/productbrowsingModel.php');
 
 if(isset($_POST['action'])){
     $productID= $_POST['productID'];
@@ -13,7 +14,13 @@ if(isset($_POST['action'])){
     }
 }
 
-$res= getAllProduct();
+if(isset($_GET['search']) && $_GET['search'] !=''){
+    $res = searchProducts($_GET['search']);
+}
+else{
+    $res = getAllProduct();
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -27,6 +34,19 @@ $res= getAllProduct();
 <body>
     <div id="productsView">
         <h1>All Products</h1>
+
+        <div class="search">
+            <form method="GET" action="Employee.php">
+                <input type="hidden" name="page" value="products">
+                <input type="text" name="search" placeholder="Search by ProductId, ProductName or Category..." 
+                value="<?php if(isset($_GET['search'])) echo $_GET['search']; ?>">
+
+                <div class="searchbtn">
+                    <button type="submit">Search</button>
+                    <a href="Employee.php?page=products">Clear</a>
+                </div>
+            </form>
+        </div>
         
         <table border="1" width="100%">
             <tr>

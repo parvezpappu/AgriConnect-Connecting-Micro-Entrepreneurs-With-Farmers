@@ -1,10 +1,10 @@
 <?php
-
 require("../../AuthenticationSystem/Controllers/authCheck.php");
 
 require_once("../Models/RequstModels.php");
 require_once("../Models/FarmerModels.php");
 require_once("../Models/ShopOwnerModels.php");
+require_once("../../ProductManagement/Models/productModel.php");
 
 
 [$requests, $reqCount]=getAllRequests();
@@ -14,6 +14,7 @@ require_once("../Models/ShopOwnerModels.php");
 $_SESSION['CountOfRequest']= $reqCount;
 $_SESSION['countOfFarmer']= $farmerCount;
 $_SESSION['countOfShopOwner']= $ownerCount;
+
 
 if(isset($_POST['action'])){
   $productID= $_POST['productID'];
@@ -27,6 +28,11 @@ elseif($_POST['action']=='update'){
   header("Location: ../../ProductManagement/Views/UpdateProduct.php?id=". $productID);
   exit;
 }
+}
+
+$page="dashboard";
+if(isset($_GET['page'])){
+  $page=$_GET['page'];
 }
   
 ?>
@@ -82,29 +88,30 @@ elseif($_POST['action']=='update'){
       <?php include_once("../../User_Profile_Management/Views/AdminProfile.php");?>
       <?php include_once("EmoloyeeFarmer.php");?>
       <?php include_once("EmoloyeeshooOwner.php");?>
+      <?php include_once("AdminProducts.php");?>
+
       <?php include_once("EmployeeRequest.php");?>
       <?php include_once("EmployeeSetting.php");?>
       <?php include_once("AdminUsers.php");?>
-      <?php include_once("AdminProducts.php");?>
       <?php include_once("AdminOrders.php");?>
       <?php include_once("AdminSettings.php");?>
+
+        <div id="dashboardView">
+        <h1 id="welcomeText">Admin DashBoard
+        <h3>Welcome back
       
-      <div id="dashboardView">
-      <h1 id="welcomeText">Admin DashBoard
-      <h3>Welcome back
-      
-      <?php 
+        <?php 
         echo$_SESSION['FullnameAdmin'];
-      ?> 
-      ! Here's What's Happening Today
-      </h3>
-      </h1>
+        ?> 
+        ! Here's What's Happening Today
+        </h3>
+        </h1>
       
-      <div id="infoOverAll">
+        <div id="infoOverAll">
         <p id="totalfarmers">
         Total Farmers
         <br>
-      <?php  echo$_SESSION['countOfFarmer']?>
+        <?php  echo$_SESSION['countOfFarmer']?>
         </p>
 
         <p id="totalBuyer">
@@ -120,6 +127,7 @@ elseif($_POST['action']=='update'){
         </p>
       </div>
       </div>
+    
     </div>
 
     <!--<div id="rightDashBoard">
@@ -128,7 +136,16 @@ elseif($_POST['action']=='update'){
         <p>Order Placed From Farmer</p>
     </div>-->
 
-  </div>
+</div>
     <script src="../Assets/Admin.js"></script>
+
+    <?php if(isset($_GET['page']) && $_GET['page'] === 'products'){?>
+      <script>
+        document.getElementById('products').click();
+      </script>
+
+      <?php
+    } 
+    ?>
 </body>
 </html>

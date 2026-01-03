@@ -1,6 +1,6 @@
 <?php
   require("../../AuthenticationSystem/Controllers/authCheck.php");
-
+  
   require_once("../Models/RequstModels.php");
   require_once("../Models/FarmerModels.php");
   require_once("../Models/ShopOwnerModels.php");
@@ -100,5 +100,14 @@
 
      </div>
       <script src="../Assets/Employee.js"></script>
+
+      <?php if(isset($_GET['page']) && $_GET['page'] === 'products'){?>
+      <script>
+        document.getElementById('products').click();
+      </script>
+
+      <?php
+    } 
+    ?>
  </body>
  </html>

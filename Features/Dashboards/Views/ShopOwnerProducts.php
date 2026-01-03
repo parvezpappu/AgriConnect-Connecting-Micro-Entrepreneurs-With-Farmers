@@ -1,57 +1,91 @@
-<div id="productsView" style="display:none;">
-  <h1>Products</h1>
+<?php
+require_once('../../ProductManagement/Models/productModel.php');
+require_once('../../ProductBrowsing/productbrowsingModel.php');
 
-  <table border="1" width="100%">
-    <thead>
-      <tr>
-        <th>Product ID</th>
-        <th>Product Name</th>
-        <th>Category</th>
-        <th>Price</th>
-        <th>Stock</th>
-        <th>Status</th>
-        <th>Actions</th>
-      </tr>
-    </thead>
+if(isset($_POST['action'])){
+    $productID= $_POST['productID'];
+    
+    if($_POST['action']=='delete'){
+        deleteProduct($productID);
+        
+    } 
+    elseif($_POST['action']=='update'){
+        header("Location: ../../ProductManagement/Views/UpdateProduct.php?id=". $productID);
+    }
+}
 
-    <tbody>
-      <tr>
-        <td>PR-001</td>
-        <td>Fresh Tomato</td>
-        <td>Vegetable</td>
-        <td>৳ 60 / kg</td>
-        <td>120</td>
-        <td>Active</td>
-        <td>
-          <button class="editProductBtn" data-product-id="PR-001">Edit</button>
-          <button class="deleteProductBtn" data-product-id="PR-001">Delete</button>
-        </td>
-      </tr>
-      <tr>
-        <td>PR-002</td>
-        <td>Basmati Rice</td>
-        <td>Grain</td>
-        <td>৳ 110 / kg</td>
-        <td>75</td>
-        <td>Active</td>
-        <td>
-          <button class="editProductBtn" data-product-id="PR-002">Edit</button>
-          <button class="deleteProductBtn" data-product-id="PR-002">Delete</button>
-        </td>
-      </tr>
-      
-      <tr>
-        <td>PR-003</td>
-        <td>Honey</td>
-        <td>Organic</td>
-        <td>৳ 350 / jar</td>
-        <td>20</td>
-        <td>Inactive</td>
-        <td>
-          <button class="editProductBtn" data-product-id="PR-003">Edit</button>
-          <button class="deleteProductBtn" data-product-id="PR-003">Delete</button>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+if(isset($_GET['search']) && $_GET['search']!=''){
+    $res=searchProducts($_GET['search']);
+}
+else{
+    $res=getAllProduct();
+}
+
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Management</title>
+    <link rel="stylesheet" href="../Assets/Admin.css">
+</head>
+<body>
+    <div id="productsView">
+        <h1>All Products</h1>
+        
+        <div class="search">
+            <form method="GET" action="ShopOwner.php">
+                <input type="hidden" name="page" value="products">
+                <input type="text" name="search" placeholder="Search by ProductId, ProductName or Category..." 
+                value="<?php if(isset($_GET['search'])) echo $_GET['search']; ?>">
+
+                <div class="searchbtn">
+                    <button type="submit">Search</button>
+                    <a href="ShopOwner.php?page=products">Clear</a>
+                </div>
+            </form>
+        </div>
+
+        <table border="1" width="100%">
+            <tr>
+                <th>Product ID</th>
+                <th>Product Name</th>
+                <th>Category</th>
+                <th>Price</th>
+                <th>Stock</th>
+                <th>Status</th>
+                <th>Image</th>
+            </tr>
+            
+            <?php
+            if(mysqli_num_rows($res)>0){
+                while($row=mysqli_fetch_assoc($res)){
+            ?>
+            
+            <tr>
+                <td><?php echo $row['productID']?></td>
+                <td><?php echo $row['productName']?></td>
+                <td><?php echo $row['category']?></td>
+                <td><?php echo $row['price']?></td>
+                <td><?php echo $row['stock']?></td>
+                <td><?php echo $row['status']?></td>
+                <td>
+                    <img height="80" width="80" src="../../ProductManagement/Assets/<?php echo $row['image']?>">
+                </td>
+            </tr>
+
+            <?php
+                }
+            }
+            else{
+                echo "<tr><td colspan='8'>Products not found!</td></tr>";
+            }
+            ?>
+            
+        </table>
+        
+    </div>
+</body>
+</html>
