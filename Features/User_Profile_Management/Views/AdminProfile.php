@@ -8,7 +8,6 @@
     } 
 
     $adminEmail = $_SESSION['AdminEmail'];
-    echo $adminEmail;
 
     $admin=getAdminByEmail($adminEmail);
 

@@ -60,11 +60,12 @@
 
         </div>
 
-        <div id="rightDashBoard">
+       <!-- <div id="rightDashBoard">
             <h1>Notifications</h1>
             <p>Farmer Request For Payment</p>
             <p>Order Placed From Farmer</p>
         </div>
+-->
 
      </div>
      <script src="../Assets/Farmer.js"></script>

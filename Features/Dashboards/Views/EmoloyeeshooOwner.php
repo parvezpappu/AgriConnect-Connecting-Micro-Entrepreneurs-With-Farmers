@@ -1,13 +1,13 @@
-    <?php
-    require_once("../Models/ShopOwnerModels.php");
+<?php
+require_once("../Models/ShopOwnerModels.php");
 
-    if (isset($_POST['shopEmail'])) {
-        deleteShopOwner($_POST['shopEmail']);
-    }
+if (isset($_POST['shopEmail'])) {
+    deleteShopOwner($_POST['shopEmail']);
+}
 
-    [$shopOwners,$shopOwnerCount]=getAllShopOwners();
-    $_SESSION['countOfShopOwner']=$shopOwnerCount;
-    ?>
+[$shopOwners,$shopOwnerCount]=getAllShopOwners();
+$_SESSION['countOfShopOwner']=$shopOwnerCount;
+?>
 
 <div id="shopOwnerView" style="display:none;">
   <h1>Shop Owners</h1>
