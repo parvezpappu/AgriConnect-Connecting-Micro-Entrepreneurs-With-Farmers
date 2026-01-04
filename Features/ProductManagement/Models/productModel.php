@@ -31,7 +31,7 @@ function deleteProduct($id){
 function updateProduct($id, $productName, $category, $price, $stock, $status, $image = ''){
     $con= getConnection();
     
-    if($image != ''){
+    if($image !=''){
         $sql="update allproducts set 
         productName='$productName', 
         category='$category', 
@@ -41,7 +41,8 @@ function updateProduct($id, $productName, $category, $price, $stock, $status, $i
         image='$image' 
         where productID='$id'";
 
-    }else{
+    }
+    else{
         $sql="update allproducts set 
         productName='$productName', 
         category='$category', 
