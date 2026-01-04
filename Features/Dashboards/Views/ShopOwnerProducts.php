@@ -27,7 +27,6 @@ $res = getAllProduct();
 </head>
 <body>
 
-  <!-- SAME STYLE AS YOUR EXAMPLE: hidden view controlled by id -->
   <div id="productsView" style="display:none;">
     <h1>All Products</h1>
 
@@ -47,8 +46,10 @@ $res = getAllProduct();
 
       <tbody>
         <?php
-        if ($res && mysqli_num_rows($res) > 0) {
-            while ($row = mysqli_fetch_assoc($res)) {
+        if ($res && mysqli_num_rows($res) > 0)
+          {
+            while ($row = mysqli_fetch_assoc($res))
+           {
         ?>
           <tr>
             <td><?php echo $row['productID']; ?></td>
