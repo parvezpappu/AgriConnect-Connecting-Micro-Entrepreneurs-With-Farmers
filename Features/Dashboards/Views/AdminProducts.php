@@ -77,16 +77,16 @@ else{
                 </td>
             </tr>
 
-            <?php
-                }
-            }
-            else{
-                echo "<tr><td colspan='8'>Products not found!</td></tr>";
-            }
-            ?>
-            
-        </table>
-        <a id="addProduct" href="../../ProductManagement/Views/AddProduct.php">Add Product</a>
-    </div>
-</body>
-</html>
+              <?php
+                  }
+              }
+              else{
+                  echo "<tr><td colspan='8'>Products not found!</td></tr>";
+              }
+              ?>
+              
+          </table>
+          <a id="addProduct" href="../../ProductManagement/Views/AddProduct.php">Add Product</a>
+      </div>
+  </body>
+  </html>

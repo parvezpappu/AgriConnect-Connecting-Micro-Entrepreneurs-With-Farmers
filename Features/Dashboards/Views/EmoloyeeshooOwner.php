@@ -30,10 +30,9 @@ $_SESSION['countOfShopOwner']=$shopOwnerCount;
         foreach($shopOwners as $owner) { 
             ?>
             <tr>
-                <td>
-                <?=$owner['Name']?></td>
-                <td><?=$owner['Address']?></td>
-                <td><?=$owner['Email']?></td>
+                   <td><?php echo $owner['Name']; ?></td>
+                   <td><?php echo $owner['Address'];?></td>
+                   <td><?php echo $owner['Email']; ?></td>
                 <td>
                     <form   method="post">
                     <input  type="hidden"name="shopEmail" value="<?= $owner['Email'] ?>">

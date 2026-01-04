@@ -26,9 +26,6 @@
           <button id="orders">Orders</button>
           <br>
           <br>
-          <button id="setting">Settings</button>
-          <br>
-          <br>
           <button id="ShopPartner"> Profile <br>Buyer
             <br>
             Agriconnect
@@ -41,9 +38,10 @@
 
         <div id="middleDashBoard">
           <?php include_once("../../User_Profile_Management/Views/ShopOwnerProfile.php");?>
-          <?php include("ShopOwnerProducts.php");?>
+          
           <?php include("ShopOwnerOrders.php");?>
           <?php include("ShopOwnerSettings.php");?>
+          <?php include_once("ShopOwnerProducts.php");?>
              <div id="dashboardView">
              <h1 id="welcomeText">ShopOwner DashBoard
               <h3>Welcome back  

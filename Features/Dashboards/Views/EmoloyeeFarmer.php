@@ -25,9 +25,9 @@ if (isset($_POST['email'])) {
     <?php if (!empty($farmers)) { ?>
         <?php foreach ($farmers as $farmer) { ?>
             <tr>
-                <td><?= $farmer['Name'] ?></td>
-                <td><?= $farmer['Address'] ?></td>
-                <td><?= $farmer['Email'] ?></td>
+                <td><?php  echo$farmer['Name'] ?></td>
+                <td><?php  echo$farmer['Address'] ?></td>
+                <td><?php  echo$farmer['Email'] ?></td>
                 <td>
             <form method="post">
                 <input type="hidden" name="email" value="<?= $farmer['Email'] ?>">

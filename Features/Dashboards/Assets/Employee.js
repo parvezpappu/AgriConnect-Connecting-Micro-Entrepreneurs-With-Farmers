@@ -38,7 +38,7 @@
        products.style.backgroundColor="";
        reports.style.backgroundColor="";
        setting.style.backgroundColor="";
-     employee.style.backgroundColor="";
+       employee.style.backgroundColor="";
 
     if (active){
         active.style.backgroundColor="green";
