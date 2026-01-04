@@ -1,7 +1,20 @@
 <?php
+ require("../../AuthenticationSystem/Controllers/authCheck.php");
 
-require("../../AuthenticationSystem/Controllers/authCheck.php");
-?>
+  $requiredRole = 'shopowner';
+  if(!isset($_SESSION['valid'])||$_SESSION['valid']!==true) {
+      header("Location: ../../AuthenticationSystem/Views/Login.html");
+      exit;
+      }
+
+   if(isset($requiredRole)){
+      if(!isset($_SESSION['role'])||$_SESSION['role']!=$requiredRole) {
+          echo "Invalid URL";
+          exit;
+      }
+      }
+
+ ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -27,14 +40,25 @@ require("../../AuthenticationSystem/Controllers/authCheck.php");
         </div>
 
         <div id="middleDashBoard">
-            <?php include_once("../../User_Profile_Management/Views/ShopOwnerProfile.php"); ?>
-            <?php include("ShopOwnerOrders.php"); ?>
-            <?php include("ShopOwnerSettings.php"); ?>
-            <?php include_once("ShopOwnerProducts.php"); ?>
+          <?php include_once("../../User_Profile_Management/Views/ShopOwnerProfile.php");?>
+          
+          <?php include("ShopOwnerOrders.php");?>
+          <?php include("ShopOwnerSettings.php");?>
+          <?php include_once("ShopOwnerProducts.php");?>
+             <div id="dashboardView">
+             <h1 id="welcomeText">ShopOwner DashBoard
+              <h3>Welcome back  
+              <?php 
+              
+              echo$_SESSION['FullnameShopOwner']; 
+              ?> 
+             ! Here's What's Happening Today
+              </h3>
+    
+             </h1>
+           
 
-            <div id="dashboardView">
-                <h1 id="welcomeText">ShopOwner DashBoard</h1>
-                <h3>Welcome back <?php echo $_SESSION['FullnameShopOwner']; ?>! Here's What's Happening Today</h3>
+        </div>
             </div>
 
             <div id="ordersView" style="display:none;">

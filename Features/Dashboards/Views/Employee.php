@@ -1,9 +1,27 @@
 <?php
   require("../../AuthenticationSystem/Controllers/authCheck.php");
+
+  
   
   require_once("../Models/RequstModels.php");
   require_once("../Models/FarmerModels.php");
   require_once("../Models/ShopOwnerModels.php");
+
+   $requiredRole = 'employee';
+   if(!isset($_SESSION['valid'])||$_SESSION['valid']!==true) {
+      header("Location: ../../AuthenticationSystem/Views/Login.html");
+      exit;
+      }
+
+   if (isset($requiredRole)){
+      if (!isset($_SESSION['role'])||$_SESSION['role']!=$requiredRole) {
+          echo "Invalid URL";
+          exit;
+      }
+      }
+
+
+    
   
 
   [$requests, $reqCount]=getAllRequests();
