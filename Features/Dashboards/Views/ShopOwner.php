@@ -1,6 +1,20 @@
 
  <?php
  require("../../AuthenticationSystem/Controllers/authCheck.php");
+
+  $requiredRole = 'shopowner';
+  if(!isset($_SESSION['valid'])||$_SESSION['valid']!==true) {
+      header("Location: ../../AuthenticationSystem/Views/Login.html");
+      exit;
+      }
+
+   if(isset($requiredRole)){
+      if(!isset($_SESSION['role'])||$_SESSION['role']!=$requiredRole) {
+          echo "Invalid URL";
+          exit;
+      }
+      }
+
  ?>
 
  <!DOCTYPE html>
