@@ -1,7 +1,6 @@
 <?php
-// session_start();
 require_once('../../ProductManagement/Models/productModel.php');
-require_once('../../CartAndCheckout/Models/ProductcartModel.php');
+require_once('../../ProductBrowsing/productbrowsingModel.php');
 
 if(isset($_POST['productID']))
  {
@@ -20,10 +19,10 @@ $res = getAllProduct();
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>All Products</title>
-  <link rel="stylesheet" href="../../Dashboards/Assets/Admin.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Management</title>
+    <link rel="stylesheet" href="../Assets/Admin.css">
 </head>
 <body>
 

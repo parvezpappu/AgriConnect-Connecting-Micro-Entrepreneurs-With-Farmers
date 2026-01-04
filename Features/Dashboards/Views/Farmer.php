@@ -25,10 +25,6 @@
           <br>
           <button id="products">Products</button>
           <br>
-          
-          <br>
-          <button id="setting">Settings</button>
-          <br>
           <br>
           <button id="farmer"> Profile <br>Farmer
             <br>
@@ -39,7 +35,6 @@
           
           <a href="../../AuthenticationSystem/Controllers/Logout.php" id="logOut">Logout</a>
         </div>
-
         <div id="middleDashBoard">
            <?php include_once("../../User_Profile_Management/Views/FarmerProfile.php");?>
             <?php include("FarmerOrders.php");?>
@@ -51,7 +46,11 @@
           <?php 
           echo" ",$_SESSION['FullnameFarmer']; 
           ?> 
-          </h3>
+            </h3>
+          <br>
+          <br>
+          <img src="https://img.freepik.com/premium-photo/happy-asian-man-farmer-with-smiling-face-hand-holding-smart-phone-standing-rice-farm-cash-subsidy-concept_55716-3407.jpg" alt="farmer Image" style="height: 400px;width:1013px">
+        
 
          </h1>
          
@@ -69,5 +68,14 @@
 
      </div>
      <script src="../Assets/Farmer.js"></script>
+     <?php if(isset($_GET['page']) && $_GET['page'] === 'products'){
+      ?>
+      <script>
+        document.getElementById('products').click();
+      </script>
+
+      <?php
+    } 
+    ?>
  </body>
  </html>
