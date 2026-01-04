@@ -1,84 +1,91 @@
 <?php
-// session_start();
 require_once('../../ProductManagement/Models/productModel.php');
-require_once('../../CartAndCheckout/Models/ProductcartModel.php');
+require_once('../../ProductBrowsing/productbrowsingModel.php');
 
-if (isset($_POST['productID'])) {
-    $productID = $_POST['productID'];
-    $productName = $_POST['productName'];
-    $productPrice = $_POST['productPrice'];
-    $stock = $_POST['stock'];
-
-    addCart($productID, $productName, $productPrice, $stock);
-    header("Location: ../../CartAndCheckout/Views/ShopOwnerCart.php");
-    exit();
+if(isset($_POST['action'])){
+    $productID= $_POST['productID'];
+    
+    if($_POST['action']=='delete'){
+        deleteProduct($productID);
+        
+    } 
+    elseif($_POST['action']=='update'){
+        header("Location: ../../ProductManagement/Views/UpdateProduct.php?id=". $productID);
+    }
 }
 
-$res = getAllProduct();
+if(isset($_GET['search']) && $_GET['search']!=''){
+    $res=searchProducts($_GET['search']);
+}
+else{
+    $res=getAllProduct();
+}
+
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>All Products</title>
-  <link rel="stylesheet" href="../../Dashboards/Assets/Admin.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Management</title>
+    <link rel="stylesheet" href="../Assets/Admin.css">
 </head>
 <body>
+    <div id="productsView">
+        <h1>All Products</h1>
+        
+        <div class="search">
+            <form method="GET" action="ShopOwner.php">
+                <input type="hidden" name="page" value="products">
+                <input type="text" name="search" placeholder="Search by ProductId, ProductName or Category..." 
+                value="<?php if(isset($_GET['search'])) echo $_GET['search']; ?>">
 
-  <!-- SAME STYLE AS YOUR EXAMPLE: hidden view controlled by id -->
-  <div id="productsView" style="display:none;">
-    <h1>All Products</h1>
+                <div class="searchbtn">
+                    <button type="submit">Search</button>
+                    <a href="ShopOwner.php?page=products" class="clearbtn">Clear</a>
+                </div>
+            </form>
+        </div>
 
-    <table border="1" width="100%">
-      <thead>
-        <tr>
-          <th>Product ID</th>
-          <th>Product Name</th>
-          <th>Category</th>
-          <th>Price</th>
-          <th>Stock</th>
-          <th>Status</th>
-          <th>Image</th>
-          <th>Action</th>
-        </tr>
-      </thead>
+        <table border="1" width="100%">
+            <tr>
+                <th>Product ID</th>
+                <th>Product Name</th>
+                <th>Category</th>
+                <th>Price</th>
+                <th>Stock</th>
+                <th>Status</th>
+                <th>Image</th>
+            </tr>
+            
+            <?php
+            if(mysqli_num_rows($res)>0){
+                while($row=mysqli_fetch_assoc($res)){
+            ?>
+            
+            <tr>
+                <td><?php echo $row['productID']?></td>
+                <td><?php echo $row['productName']?></td>
+                <td><?php echo $row['category']?></td>
+                <td><?php echo $row['price']?></td>
+                <td><?php echo $row['stock']?></td>
+                <td><?php echo $row['status']?></td>
+                <td>
+                    <img height="80" width="80" src="../../ProductManagement/Assets/<?php echo $row['image']?>">
+                </td>
+            </tr>
 
-      <tbody>
-        <?php
-        if ($res && mysqli_num_rows($res) > 0) {
-            while ($row = mysqli_fetch_assoc($res)) {
-        ?>
-          <tr>
-            <td><?php echo $row['productID']; ?></td>
-            <td><?php echo $row['productName']; ?></td>
-            <td><?php echo $row['category']; ?></td>
-            <td><?php echo $row['price']; ?></td>
-            <td><?php echo $row['stock']; ?></td>
-            <td><?php echo $row['status']; ?></td>
-            <td>
-              <img height="80" width="80"
-                   src="../../ProductManagement/Assets/<?php echo $row['image']; ?>" />
-            </td>
-            <td>
-              <form method="POST">
-                <input type="hidden" name="productID" value="<?php echo $row['productID']; ?>">
-                <input type="hidden" name="productName" value="<?php echo $row['productName']; ?>">
-                <input type="hidden" name="productPrice" value="<?php echo $row['price']; ?>">
-                <input type="hidden" name="stock" value="<?php echo $row['stock']; ?>">
-                <button type="submit" id="AddToCart">Add To Cart</button>
-              </form>
-            </td>
-          </tr>
-        <?php
+            <?php
+                }
             }
-        }
-        ?>
-      </tbody>
-    </table>
-    <a href="../../CartAndcheckout/Views/ShopOwnerCart.php" id="showCart">Show Cart</a>
-  </div>
-
+            else{
+                echo "<tr><td colspan='8'>Products not found!</td></tr>";
+            }
+            ?>
+            
+        </table>
+        
+    </div>
 </body>
 </html>

@@ -67,5 +67,14 @@
 
      </div>
      <script src="../Assets/ShopOwner.js"></script>
+     <?php if(isset($_GET['page']) && $_GET['page'] === 'products'){
+      ?>
+      <script>
+        document.getElementById('products').click();
+      </script>
+
+      <?php
+    } 
+    ?>
  </body>
  </html>

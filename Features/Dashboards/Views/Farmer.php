@@ -68,5 +68,14 @@
 
      </div>
      <script src="../Assets/Farmer.js"></script>
+     <?php if(isset($_GET['page']) && $_GET['page'] === 'products'){
+      ?>
+      <script>
+        document.getElementById('products').click();
+      </script>
+
+      <?php
+    } 
+    ?>
  </body>
  </html>
