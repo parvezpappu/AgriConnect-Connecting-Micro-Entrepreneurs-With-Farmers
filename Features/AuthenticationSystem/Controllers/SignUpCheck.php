@@ -19,11 +19,11 @@ if(isset($_POST['submit'])){
         echo "Create Password And Confirm Password Should Be Matched";
         exit;
     }
-
+     //request database e insert hocce...cause pending.
     $status=insertRequest($fullName,$userEmail,$address,$passwordConfirm,$role);
 
     if($status){
-        echo "Request submitted successfully. Please wait for employee approval.";
+        echo "Request submitted successfully. Please wait for Your approval.";
     }else{
         echo "Request submission failed!";
     }
