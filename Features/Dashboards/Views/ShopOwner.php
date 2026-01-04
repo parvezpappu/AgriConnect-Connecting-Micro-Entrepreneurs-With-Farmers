@@ -1,80 +1,49 @@
+<?php
 
- <?php
- require("../../AuthenticationSystem/Controllers/authCheck.php");
- ?>
+require("../../AuthenticationSystem/Controllers/authCheck.php");
+?>
 
- <!DOCTYPE html>
- <html lang="en">
- <head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Buyer Portal</title>
+    <title>ShopOwner Dashboard</title>
     <link rel="stylesheet" href="../Assets/ShopOwner.css">
-     <link rel="stylesheet" href="../../User_Profile_Management/Assets/ShopOwnerProfile.css">
-  </head>
- <body>
-     <div id="dashboardComponent">
-         
+    <link rel="stylesheet" href="../../User_Profile_Management/Assets/ShopOwnerProfile.css">
+</head>
+<body>
+    <div id="dashboardComponent">
+
         <div id="LeftBarDashBoard">
-          <h2>AgriConnect</h2>
-          <button id="dashboard">DashBoard</button>
-          <br>
-          <br>
-          <button id="products">Products</button>
-          <br>
-          <br>
-          <button id="orders">Orders</button>
-          <br>
-          <br>
-          <button id="ShopPartner"> Profile <br>Buyer
-            <br>
-            Agriconnect
-          </button>
-          <br>
-          <br>
-          
-          <a href="../../AuthenticationSystem/Controllers/Logout.php" id="logOut">Logout</a>
+            <h2>AgriConnect</h2>
+            <button id="dashboard">DashBoard</button>
+            <br><br>
+            <button id="products">Products</button>
+            <br><br>
+            <button id="ShopPartner">Profile <br>Buyer <br> Agriconnect</button>
+            <br><br>
+            <a href="../../AuthenticationSystem/Controllers/Logout.php" id="logOut">Logout</a>
         </div>
 
         <div id="middleDashBoard">
-          <?php include_once("../../User_Profile_Management/Views/ShopOwnerProfile.php");?>
-          
-          <?php include("ShopOwnerOrders.php");?>
-          <?php include("ShopOwnerSettings.php");?>
-          <?php include_once("ShopOwnerProducts.php");?>
-             <div id="dashboardView">
-             <h1 id="welcomeText">ShopOwner DashBoard
-              <h3>Welcome back  
-              <?php 
-              
-              echo$_SESSION['FullnameShopOwner']  ; 
-              ?> 
-             ! Here's What's Happening Today
-              </h3>
-    
-             </h1>
-           
+            <?php include_once("../../User_Profile_Management/Views/ShopOwnerProfile.php"); ?>
+            <?php include("ShopOwnerOrders.php"); ?>
+            <?php include("ShopOwnerSettings.php"); ?>
+            <?php include_once("ShopOwnerProducts.php"); ?>
 
-        </div>
+            <div id="dashboardView">
+                <h1 id="welcomeText">ShopOwner DashBoard</h1>
+                <h3>Welcome back <?php echo $_SESSION['FullnameShopOwner']; ?>! Here's What's Happening Today</h3>
             </div>
 
-        <!--<div id="rightDashBoard">
-            <h1>Notifications</h1>
-            <p>Your orders has been delivers</p>
-            <p>Your  order is processing</p>
+            <div id="ordersView" style="display:none;">
+                <?php include_once("../../CartAndCheckout/Views/ShopOwnerCartView.php"); ?>
+            </div>
         </div>
--->
 
-     </div>
-     <script src="../Assets/ShopOwner.js"></script>
-     <?php if(isset($_GET['page']) && $_GET['page'] === 'products'){
-      ?>
-      <script>
-        document.getElementById('products').click();
-      </script>
+    </div>
 
-      <?php
-    } 
-    ?>
- </body>
- </html>
+    <script src="../Assets/ShopOwner.js"></script>
+</body>
+</html>
