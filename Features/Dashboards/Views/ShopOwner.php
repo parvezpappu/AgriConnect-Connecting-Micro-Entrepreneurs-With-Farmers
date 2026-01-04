@@ -26,9 +26,6 @@
           <button id="orders">Orders</button>
           <br>
           <br>
-          <button id="setting">Settings</button>
-          <br>
-          <br>
           <button id="ShopPartner"> Profile <br>Buyer
             <br>
             Agriconnect

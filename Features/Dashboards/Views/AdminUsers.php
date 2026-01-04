@@ -31,9 +31,9 @@
         foreach ($employees as $emp){ 
         ?>
             <tr>
-                <td><?= $emp['Name'] ?></td>
-                <td><?= $emp['Email'] ?></td>
-                <td><?= $emp['Password'] ?></td>
+                <td><?php  echo$emp['Name'] ?></td>
+                <td><?php  echo$emp['Email'] ?></td>
+                <td><?php  echo$emp['Password'] ?></td>
                 <td>
                     <form method="post">
                         <input type="hidden" name="empEmail" value="<?= $emp['Email'] ?>">

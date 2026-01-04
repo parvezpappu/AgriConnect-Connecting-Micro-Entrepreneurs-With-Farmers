@@ -1,4 +1,5 @@
-const dashBoard = document.getElementById("dashboard");
+  
+  const dashBoard = document.getElementById("dashboard");
   const employee = document.getElementById("users");
   const products = document.getElementById("products");
   const orders = document.getElementById("orders");
@@ -30,8 +31,8 @@ const dashBoard = document.getElementById("dashboard");
      settingView.style.display="none";
      adminProfileView.style.display="none";
      farmersView.style.display="none";
-    shopOwnerView.style.display="none";
-    reportsView.style.display="none";
+     shopOwnerView.style.display="none";
+     reportsView.style.display="none";
 
     if(view){
         view.style.display="block";
@@ -48,8 +49,8 @@ const dashBoard = document.getElementById("dashboard");
       setting.style.backgroundColor = "";
       adminBtn.style.backgroundColor = "";
       farmers.style.backgroundColor="";
-       shopOwner.style.backgroundColor="";
-       reports.style.backgroundColor="";
+      shopOwner.style.backgroundColor="";
+      reports.style.backgroundColor="";
 
     if(active){
       active.style.backgroundColor ="green";

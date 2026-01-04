@@ -7,8 +7,9 @@
    require_once("../../Dashboards/Models/ShopownerModels.php");
 
    if(isset($_POST['subMit'])){
+       
 
-      $admin=getAdmin();
+      $admin=getAdmin(); //full array ta ache.
       [$employees,$count]=getAllEmployees();
       $userEmailLogin=$_POST['email'];
       $passwordLogin=$_POST['pasword']; 

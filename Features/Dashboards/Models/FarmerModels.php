@@ -9,7 +9,6 @@ function getAllFarmers(){
     $count=mysqli_num_rows($res);
 
     $farmers=[];
-
     while($row=mysqli_fetch_assoc($res)){
         $farmers[]=$row;
     }
@@ -17,11 +16,11 @@ function getAllFarmers(){
     return [$farmers,$count];
 }
 
-function deleteFarmer($email){
-    $con = getConnection();
-    $sql = "DELETE FROM Farmer WHERE Email = '$email'";
-    return mysqli_query($con, $sql);
-}// delete marbo ar ki
+    function deleteFarmer($email){
+        $con = getConnection();
+        $sql = "DELETE FROM Farmer WHERE Email = '$email'";
+        return mysqli_query($con, $sql);
+    }// delete marbo ar ki
 
 
 ?>

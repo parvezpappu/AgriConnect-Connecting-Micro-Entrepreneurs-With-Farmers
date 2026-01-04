@@ -1,6 +1,7 @@
     <?php
     require_once("../../AuthenticationSystem/Models/db.php");
     require_once("../Models/RequstModels.php");
+
     [$requests,$count]=getAllRequests();
 
     if(isset($_POST['approve'])){
@@ -10,9 +11,8 @@
             exit;
         }
 
-        
         $selectedRequest=null;
-
+         //fully array ta ache. so which one?
         foreach($requests as $req){
             if($req['Email']===$email){
                 $selectedRequest=$req;
@@ -50,8 +50,6 @@
        
         $deleteSql="DELETE FROM request WHERE Email='$email'";
         mysqli_query($con,$deleteSql);
-
-    
         header("Location: ../Views/Employee.php");
         exit;
     }
