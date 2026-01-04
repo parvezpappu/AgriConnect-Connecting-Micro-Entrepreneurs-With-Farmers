@@ -6,8 +6,7 @@ function getProductcart()
      $con = getConnection();
      $sql = "select * from productcart";
      $result = mysqli_query($con, $sql);
-     $count=mysqli_num_rows($result);
-     return [$result,$count];
+     return $result;
  }
 
 

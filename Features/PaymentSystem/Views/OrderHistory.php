@@ -18,22 +18,6 @@ $count = mysqli_num_rows($res);
 
 <div id="dashboardComponent">
 
-    
-    <div id="LeftBarDashBoard">
-        <h2>AgriConnect</h2>
-
-        <button id="dashboard">Dashboard</button>
-        <br><br>
-        <button id="products">Products</button>
-        <br><br>
-        <button id="orders">Orders</button>
-        <br><br>
-        <button id="setting">Settings</button>
-        <br><br>
-
-        <a href="../../AuthenticationSystem/Controllers/Logout.php" id="logOut">Logout</a>
-    </div>
-
     <div id="middleDashBoard">
 
         <h2>Order History</h2>
@@ -70,7 +54,7 @@ $count = mysqli_num_rows($res);
         </table>
 
         <br>
-        <a id="back" href="../../Dashboards/Views/ShopOwnerProducts.php"> Back </a>
+        <a id="back" href="../../Dashboards/Views/ShopOwner.php"> Back </a>
 
     </div>
 </div>

@@ -1,18 +1,20 @@
 
   <?php
 
-  session_start();
+  //session_start();
+  require("../../AuthenticationSystem/Controllers/authCheck.php");
   require_once('../Models/ProductcartModel.php');
 
-  [$res,$count] = getProductcart();
+  $res = getProductcart();
+  $count = mysqli_num_rows($res);
 
   if(!isset($_SESSION['cartQuantity']))
   {
-    $_SESSION['cartQuantity'] = [];
+    $_SESSION['cartQuantity']=[];
   }
   if (!isset($_SESSION['Error']) || !is_array($_SESSION['Error']))
   {
-      $_SESSION['Error'] = [];
+      $_SESSION['Error']=[];
   }
 
 
@@ -104,7 +106,7 @@
                   $total=0;
                   if($count > 0)
                   {
-                    while ($row = mysqli_fetch_assoc($res))
+                    while($row = mysqli_fetch_assoc($res))
                     {
                   
                       $productID = $row['productID'];

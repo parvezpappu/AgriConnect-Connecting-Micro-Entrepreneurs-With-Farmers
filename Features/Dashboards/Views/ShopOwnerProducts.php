@@ -3,7 +3,8 @@
 require_once('../../ProductManagement/Models/productModel.php');
 require_once('../../CartAndCheckout/Models/ProductcartModel.php');
 
-if (isset($_POST['productID'])) {
+if(isset($_POST['productID']))
+ {
     $productID = $_POST['productID'];
     $productName = $_POST['productName'];
     $productPrice = $_POST['productPrice'];
@@ -11,8 +12,7 @@ if (isset($_POST['productID'])) {
 
     addCart($productID, $productName, $productPrice, $stock);
     header("Location: ../../CartAndCheckout/Views/ShopOwnerCart.php");
-    exit();
-}
+ }
 
 $res = getAllProduct();
 ?>
