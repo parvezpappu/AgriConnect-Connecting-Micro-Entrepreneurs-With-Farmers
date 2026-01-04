@@ -5,6 +5,7 @@
   require("../../AuthenticationSystem/Controllers/authCheck.php");
   require_once('../Models/ProductcartModel.php');
 
+  
   $res = getProductcart();
   $count = mysqli_num_rows($res);
 
