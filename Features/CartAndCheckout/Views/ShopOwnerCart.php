@@ -1,18 +1,20 @@
 
   <?php
 
-  session_start();
+  //session_start();
+  require("../../AuthenticationSystem/Controllers/authCheck.php");
   require_once('../Models/ProductcartModel.php');
 
-  [$res,$count] = getProductcart();
+  $res = getProductcart();
+  $count = mysqli_num_rows($res);
 
   if(!isset($_SESSION['cartQuantity']))
   {
-    $_SESSION['cartQuantity'] = [];
+    $_SESSION['cartQuantity']=[];
   }
   if (!isset($_SESSION['Error']) || !is_array($_SESSION['Error']))
   {
-      $_SESSION['Error'] = [];
+      $_SESSION['Error']=[];
   }
 
 
@@ -63,14 +65,6 @@
       }
       header("Location: ShopOwnerCart.php");
   }
-
-
-  if(isset($_POST['confirmCart']))
-    {
-        header("Location: ../../PaymentSystem/Views/payment.php");
-        exit;
-    }
-
   $shipping = 5;
 
   ?>
@@ -86,30 +80,6 @@
   </head>
   <body>
       <div id="dashboardComponent">
-          
-          <div id="LeftBarDashBoard">
-            <h2>AgriConnect</h2>
-            <button id="dashboard">DashBoard</button>
-            <br>
-            <br>
-            <button id="products">Products</button>
-            <br>
-            <br>
-            <button id="orders">Orders</button>  
-            <br>
-            <br>
-            <button id="setting">Settings</button>
-            <br>
-            <br>
-            <button id="ShopOwner"> Profile <br>ShopOwner
-              <br> Agriconnect
-            </button>
-            <br>
-            <br>
-            
-            <a href="../../AuthenticationSystem/Controllers/Logout.php" id="logOut">Logout</a>
-          </div>
-          
           
           <div id="middleDashBoard">
               <div id="CartMessage">
@@ -136,7 +106,7 @@
                   $total=0;
                   if($count > 0)
                   {
-                    while ($row = mysqli_fetch_assoc($res))
+                    while($row = mysqli_fetch_assoc($res))
                     {
                   
                       $productID = $row['productID'];
@@ -206,8 +176,9 @@
                   <hr>
                   <p><strong>Total Cost: </strong> $<?php echo $totalCost; ?></p>
                   
-                  <form method="post">
-                    <button type="submit" name="confirmCart" id="confirmButton">Confirm</button>
+                  <form method="post" action="../../PaymentSystem/Views/Payment.php">
+                     <input type="hidden" name="totalCost" value="<?php echo $totalCost; ?>">
+                    <button type="submit" name="confirmOrder" id="confirmButton">Confirm Order</button>
                   </form>
               </div>
 
