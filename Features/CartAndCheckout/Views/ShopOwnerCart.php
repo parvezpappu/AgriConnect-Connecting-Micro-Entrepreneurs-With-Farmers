@@ -54,18 +54,6 @@
       header("Location: ShopOwnerCart.php");
   }
 
-
-
-  if(isset($_POST['delete'], $_POST['productID']))
-  {
-      $productID = $_POST['productID'];
-      removeCart($productID);
-      if(isset($_SESSION['cartQuantity'][$productID])) 
-      {
-          unset($_SESSION['cartQuantity'][$productID]);
-      }
-      header("Location: ShopOwnerCart.php");
-  }
   $shipping = 5;
 
   ?>
@@ -122,7 +110,7 @@
                       $total+=$subtotal;
                   ?>
                   
-                  <tr>
+                  <tr id="row<?php echo $productID; ?>">
                     <td><?php echo $productID ?></td>
                     <td><?php echo $row['productName'] ?></td>
                     <td><?php echo $price ?></td>
@@ -150,10 +138,9 @@
                 
                     <td>$<?php echo $subtotal ?></td>             
                     <td>
-                      <form method="post" style="display:inline;">
-                        <input type="hidden" name="productID" value="<?php echo $productID; ?>">
-                        <button type="submit" name="delete" id="deleteProduct" >Delete</button>
-                      </form>
+                      <button id="deleteProduct" onclick="ajaxDelete(<?php echo $productID ?>)">
+                        Delete
+                      </button>
                     </td>
                   </tr>
                 <?php
@@ -187,5 +174,7 @@
           </div>
 
       </div>
+
+      <script src="../Assets/AjaxCart.js"></script>
   </body>
   </html>
