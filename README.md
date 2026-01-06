@@ -7,7 +7,7 @@ AgriConnect is a web application designed to improve agricultural supply chains 
 
 ## Team Members
 
-1. **MD Parvej Mia** — ID: **2249155-3**  
+1. **MD Parvej Mia** — ID: **22-49155-3**  
 2. **MD. Ibtihazzaman** — ID: **22-49153-3**  
 3. **Abdulla Al Ehsan** — ID: **22-48991-3**
 
