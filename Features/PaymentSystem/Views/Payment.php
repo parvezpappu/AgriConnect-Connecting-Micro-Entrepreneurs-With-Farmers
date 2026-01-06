@@ -11,10 +11,9 @@
 
  if(isset($_POST['confirmPayment']))
     {
-       $email = $_POST['email'];
+       $email = $_SESSION['ShopOwnerEmail'];
        $address = $_POST['address'];
        $method = "Cash on Delivery";
-       $status = saveOrder($email, $address, $totalAmount, $method);
 
        if($email=="" || $address=="")
        {
@@ -22,6 +21,7 @@
        }
        else
         {
+            $status = saveOrder($email, $address, $totalAmount, $method);
             header("Location: orderHistory.php");
         }
     }

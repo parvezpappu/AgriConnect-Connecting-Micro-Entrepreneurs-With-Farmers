@@ -15,6 +15,7 @@ if(isset($_POST['productID']))
  }
 
 $res = getAllProduct();
+$count = mysqli_num_rows($res);
 ?>
 
 <!DOCTYPE html>
@@ -46,7 +47,7 @@ $res = getAllProduct();
 
       <tbody>
         <?php
-        if ($res && mysqli_num_rows($res) > 0)
+        if ($res && $count > 0)
           {
             while ($row = mysqli_fetch_assoc($res))
            {
@@ -59,8 +60,7 @@ $res = getAllProduct();
             <td><?php echo $row['stock']; ?></td>
             <td><?php echo $row['status']; ?></td>
             <td>
-              <img height="80" width="80"
-                   src="../../ProductManagement/Assets/<?php echo $row['image']; ?>" />
+              <img height="80" width="80" src="../../ProductManagement/Assets/<?php echo $row['image']; ?>" />
             </td>
             <td>
               <form method="POST">
