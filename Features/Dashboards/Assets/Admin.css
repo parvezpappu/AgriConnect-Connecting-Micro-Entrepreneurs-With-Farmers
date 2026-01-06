@@ -298,3 +298,24 @@ gap: 10px;
     font-size: 14px;
 
 }
+
+#AddToCart{
+    padding: 10px 20px;
+    background-color: green;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+#showCart{
+    margin: 20px;
+    padding: 12px;
+    background-color: green;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 15px;
+    text-decoration: none;
+}

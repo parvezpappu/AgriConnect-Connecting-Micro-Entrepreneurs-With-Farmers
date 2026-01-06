@@ -1,5 +1,5 @@
 <?php
- session_start();
+  session_start();
   require_once('../Models/OrderModel.php');
 
  if(!isset($_POST['totalCost']))
@@ -11,12 +11,19 @@
 
  if(isset($_POST['confirmPayment']))
     {
-       $email = $_POST['email'];
+       $email = $_SESSION['ShopOwnerEmail'];
        $address = $_POST['address'];
        $method = "Cash on Delivery";
-       $status = saveOrder($email, $address, $totalAmount, $method);
-       header("Location: orderHistory.php");
-         
+
+       if($email=="" || $address=="")
+       {
+           echo "Enter valid Email and Address";
+       }
+       else
+        {
+            $status = saveOrder($email, $address, $totalAmount, $method);
+            header("Location: orderHistory.php");
+        }
     }
  ?>
 
