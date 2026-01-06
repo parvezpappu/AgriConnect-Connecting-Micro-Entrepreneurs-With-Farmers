@@ -6,7 +6,7 @@ if(isset($_POST['productID'])){
     $productID = $_POST['productID'];
     $productName = $_POST['productName'];
     $productPrice = $_POST['productPrice'];
-    $stock = $_POST['stock']
+    $stock = $_POST['stock'];
 
     addCart($productID, $productName, $productPrice,$stock);
    
