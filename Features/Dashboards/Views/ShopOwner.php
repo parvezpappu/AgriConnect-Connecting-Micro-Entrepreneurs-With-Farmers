@@ -34,32 +34,28 @@
             <br><br>
             <button id="products">Products</button>
             <br><br>
-            <button id="ShopPartner">Profile <br>Buyer <br> Agriconnect</button>
+            <button id="ShopPartner">Profile <br>ShopOwner <br> Agriconnect</button>
             <br><br>
             <a href="../../AuthenticationSystem/Controllers/Logout.php" id="logOut">Logout</a>
         </div>
 
         <div id="middleDashBoard">
+
           <?php include_once("../../User_Profile_Management/Views/ShopOwnerProfile.php");?>
-          
           <?php include("ShopOwnerOrders.php");?>
           <?php include("ShopOwnerSettings.php");?>
           <?php include_once("ShopOwnerProducts.php");?>
-             <div id="dashboardView">
-             <h1 id="welcomeText">ShopOwner DashBoard
-              <h3>Welcome back  
-              <?php 
-              
-              echo$_SESSION['FullnameShopOwner']; 
-              ?> 
-             ! Here's What's Happening Today
-              </h3>
-    
-             </h1>
+            
+           <div id="dashboardView">
+              <h1 id="welcomeText">ShopOwner DashBoard
+                <h3>Welcome back  
+                <?php echo$_SESSION['FullnameShopOwner']; ?> ! 
+                </h3>
+              </h1>
+              <img src="../Assets/ShopOwner.png" width="700px" height="400px" alt="ShopOwner Picture">
            
-
+           </div>
         </div>
-            </div>
 
             <div id="ordersView" style="display:none;">
                 <?php include_once("../../CartAndCheckout/Views/ShopOwnerCartView.php"); ?>

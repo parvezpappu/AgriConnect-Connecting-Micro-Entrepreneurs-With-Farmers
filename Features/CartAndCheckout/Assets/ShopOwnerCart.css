@@ -127,6 +127,7 @@
     background-color: red;
     border: none;
     border-radius: 5px;
+    display: inline;
 }
 
 
@@ -142,9 +143,8 @@
     text-decoration: none;
 }
 
-#Shopping:hover {
-    color: black;
-    cursor: pointer;
+#Shopping:hover{
+    background-color: green;
 }
 
 #goShopping {
@@ -177,6 +177,10 @@
     border-radius: 8px;
     cursor: pointer;
     margin-top: 5px;
+}
+
+#confirmButton:hover{
+    background-color: green;
 }
 
 #logOut{

@@ -5,6 +5,7 @@
   require("../../AuthenticationSystem/Controllers/authCheck.php");
   require_once('../Models/ProductcartModel.php');
 
+  
   $res = getProductcart();
   $count = mysqli_num_rows($res);
 
@@ -26,7 +27,7 @@
               $_SESSION['cartQuantity'][$productID] = 1;
           }
 
-        if ($_POST['action'] == 'plus')
+        if($_POST['action'] == 'plus')
         {
             $stockResult = getStock($productID);
             $stockRow = mysqli_fetch_assoc($stockResult);
@@ -53,18 +54,6 @@
       header("Location: ShopOwnerCart.php");
   }
 
-
-
-  if(isset($_POST['delete'], $_POST['productID']))
-  {
-      $productID = $_POST['productID'];
-      removeCart($productID);
-      if(isset($_SESSION['cartQuantity'][$productID])) 
-      {
-          unset($_SESSION['cartQuantity'][$productID]);
-      }
-      header("Location: ShopOwnerCart.php");
-  }
   $shipping = 5;
 
   ?>
@@ -86,23 +75,22 @@
                 <h3>Your Shopping Cart</h3>
               </div>
       
-            <form method="post">
+            
               <table border="1" id="cartTable">
                   <thead>
-                      <tr>
-                        <th>Product ID</th>
-                        <th>Product Name</th>
-                        <th>Unit Price</th>
-                        <th>Quantity</th>
-                        <th>Subtotal</th>
-                        <th>Action</th>
-                      </tr>
+                    <tr>
+                      <th>Product ID</th>
+                      <th>Product Name</th>
+                      <th>Unit Price</th>
+                      <th>Quantity</th>
+                      <th>Subtotal</th>
+                      <th>Action</th>
+                    </tr>
                   </thead>
                   
                   <tbody class="cartItems">
-                    
                   <?php
-                  
+                
                   $total=0;
                   if($count > 0)
                   {
@@ -122,40 +110,38 @@
                       $total+=$subtotal;
                   ?>
                   
-                  <tr>
-                      <td><?php echo $productID ?></td>
-                      <td><?php echo $row['productName'] ?></td>
-                      <td><?php echo $price ?></td>
-                  
-                      <td>
-                          <form method="post" style="display: inline;">
-                              <input type="hidden" name="productID" value="<?php echo $productID ?>">
-                              <button type="submit" name="action" value="minus">-</button>
-                          </form>
-                  
-                          <?php echo $quantity ?>
-                  
-                          <form method="post" style="display: inline;">
-                              <input type="hidden" name="productID" value="<?php echo $productID ?>">
-                              <button type="submit" name="action" value="plus">+</button>
-                          </form>
+                  <tr id="row<?php echo $productID; ?>">
+                    <td><?php echo $productID ?></td>
+                    <td><?php echo $row['productName'] ?></td>
+                    <td><?php echo $price ?></td>
+                
+                    <td>
+                      <form method="post" style="display: inline;">
+                          <input type="hidden" name="productID" value="<?php echo $productID ?>">
+                          <button type="submit" name="action" value="minus">-</button>
+                      </form>
+              
+                      <?php echo $quantity ?>
+              
+                      <form method="post" style="display: inline;">
+                          <input type="hidden" name="productID" value="<?php echo $productID ?>">
+                          <button type="submit" name="action" value="plus">+</button>
+                      </form>
 
-                          <?php if(isset($_SESSION['Error'][$productID])) 
-                          { ?>
-                                <div id="stockError">
-                                    <?php echo $_SESSION['Error'][$productID]; ?>
-                                </div>
-                          <?php } ?>
-                      </td>
-
-                  
-                      <td>$<?php echo $subtotal ?></td>             
-                      <td>
-                        <form method="post" style="display:inline;">
-                          <input type="hidden" name="productID" value="<?php echo $productID; ?>">
-                          <button type="submit" name="delete" id="deleteProduct" >Delete</button>
-                        </form>
-                      </td>
+                      <?php if(isset($_SESSION['Error'][$productID])) 
+                      { ?>
+                            <div id="stockError">
+                                <?php echo $_SESSION['Error'][$productID]; ?>
+                            </div>
+                      <?php } ?>
+                    </td>
+                
+                    <td>$<?php echo $subtotal ?></td>             
+                    <td>
+                      <button id="deleteProduct" onclick="ajaxDelete(<?php echo $productID ?>)">
+                        Delete
+                      </button>
+                    </td>
                   </tr>
                 <?php
                   }
@@ -163,11 +149,10 @@
                 ?>
                   
               </table>
-            </form>
 
               <?php
-                  $totalCost=0;
-                  $totalCost = $total+$shipping;  
+                 $totalCost=0;
+                 $totalCost = $total+$shipping;  
               ?>
               
               <div id="summaryBox">
@@ -182,14 +167,14 @@
                   </form>
               </div>
 
-            <div id="">
+            <div>
             <a id="Shopping" href="../../Dashboards/Views/ShopOwner.php"> ← Continue Shopping</a>
             </div>
 
           </div>
 
       </div>
-<script src="../../Dashboards/Assets/ShopOwner.js"></script>
 
+      <script src="../Assets/AjaxCart.js"></script>
   </body>
   </html>

@@ -2,7 +2,8 @@
 session_start();
 require_once('../Models/OrderHistoryModel.php');
 
-$res = getAllOrders();
+$shopOwnerEmail = $_SESSION['ShopOwnerEmail'];
+$res = getAllOrders($shopOwnerEmail);
 $count = mysqli_num_rows($res);
 ?>
 

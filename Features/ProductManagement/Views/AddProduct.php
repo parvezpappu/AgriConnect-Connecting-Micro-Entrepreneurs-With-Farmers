@@ -18,7 +18,7 @@ if(isset($_POST['submit'])){
 
     $product=addProduct($productName, $category, $price, $stock, $status, $name);
     if($product){
-        echo "Successfully added!";
+        echo "Successfully product added!";
     }
     else{
         echo "Error!";

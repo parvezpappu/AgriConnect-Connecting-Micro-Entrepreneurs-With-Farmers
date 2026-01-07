@@ -1,26 +1,8 @@
+ 
+  
 <?php
- session_start();
-  require_once('../Models/OrderModel.php');
-
- if(!isset($_POST['totalCost']))
-  {
-      header("Location: ../../CartAndCheckout/Views/ShopOwnerCart.php");
-      exit;
-  }
-  $totalAmount = $_POST['totalCost'];
-
- if(isset($_POST['confirmPayment']))
-    {
-       $email = $_POST['email'];
-       $address = $_POST['address'];
-       $method = "Cash on Delivery";
-       $status = saveOrder($email, $address, $totalAmount, $method);
-       header("Location: orderHistory.php");
-         
-    }
- ?>
-
-
+      require_once('../Controllers/PaymentController.php')
+?>
 
 <!DOCTYPE html>
 <html lang="en">
