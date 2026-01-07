@@ -27,8 +27,6 @@
      dashboardView.style.display="none";
      employeeView.style.display="none";
      productsView.style.display="none";
-     ordersView.style.display="none";
-     settingView.style.display="none";
      adminProfileView.style.display="none";
      farmersView.style.display="none";
      shopOwnerView.style.display="none";
@@ -45,8 +43,6 @@
       dashBoard.style.backgroundColor = "";
       employee.style.backgroundColor = "";
       products.style.backgroundColor = "";
-      orders.style.backgroundColor = "";
-      setting.style.backgroundColor = "";
       adminBtn.style.backgroundColor = "";
       farmers.style.backgroundColor="";
       shopOwner.style.backgroundColor="";
@@ -141,3 +137,5 @@
  
   showOnly(dashboardView);
   ColorChange(dashBoard);
+
+

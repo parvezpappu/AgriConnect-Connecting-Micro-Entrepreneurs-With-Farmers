@@ -3,18 +3,20 @@
 
     require_once("../../AuthenticationSystem/Models/db.php");
     require_once("../Models/RequstModels.php");
+    require_once("../Models/notifactionModels.php");
+
+
 
     if (!isset($_POST['approve'])) {
         header("Location: ../Views/Admin.php");
         exit;
     }
 
-    $email=$_POST['email'] ?? '';
+    $email=$_POST['email'];
     if ($email ==='') {
         echo "Invalid Request";
         exit;
     }
-
 
     [$requests,$count] =getAllRequests();
 
@@ -55,5 +57,5 @@
     mysqli_query($con, $deleteSql);
 
     
-    header("Location: ../Views/Admin.php");
+    header("Location: ../../Dashboards/Views/Admin.php");
     exit;

@@ -1,6 +1,7 @@
     <?php
     require_once("../../AuthenticationSystem/Models/db.php");
     require_once("../Models/RequstModels.php");
+    require_once("../Models/notifactionModels.php");
 
     [$requests,$count]=getAllRequests();
 
@@ -46,7 +47,8 @@
             echo "Invalid role";
             exit;
         }
-
+         $msg = "Employee approved a $role signup";
+         insertNotification("signup_approved", $msg, "admin");
        
         $deleteSql="DELETE FROM request WHERE Email='$email'";
         mysqli_query($con,$deleteSql);
