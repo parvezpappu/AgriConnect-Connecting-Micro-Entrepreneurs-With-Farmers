@@ -1,29 +1,6 @@
 <?php
 require_once('../Models/productModel.php');
 
-if(isset($_POST['submit'])){
-
-    $productName=$_POST['productName'];
-    $category=$_POST['category'];
-    $price=$_POST['price'];
-    $stock=$_POST['stock'];
-    $status=$_POST['status'];
-    
-    $src=  $_FILES['image']['tmp_name'];
-    $ext = explode('.', $_FILES['image']['name']);
-    $index = count($ext) -1;
-    $name = time().".".$ext[$index];
-    $des = '../Assets/'.$name;
-    move_uploaded_file($src, $des);
-
-    $product=addProduct($productName, $category, $price, $stock, $status, $name);
-    if($product){
-        echo "Successfully product added!";
-    }
-    else{
-        echo "Error!";
-    }
-}
 ?>
 
 <!DOCTYPE html>
@@ -41,7 +18,7 @@ if(isset($_POST['submit'])){
     </div>
 
     <div class="form">
-        <form method="POST" action="" enctype="multipart/form-data">
+        <form id="addProductForm" method="POST" enctype="multipart/form-data">
             
             <div class="productTable">
                 <label>Product Name: </label>
@@ -74,11 +51,13 @@ if(isset($_POST['submit'])){
             </div>
 
             <div class="productTable">
-                <input type="submit" name="submit" value="Submit">
+                <button type="button" onclick="submitProduct()">Submit</button>
             </div>
         </form>
     </div>
 
     <a href="../../Dashboards/Views/Admin.php" id="back">Back</a>
+    <script src="../Assets/AddProduct.js"></script>
 </body>
 </html>
+
