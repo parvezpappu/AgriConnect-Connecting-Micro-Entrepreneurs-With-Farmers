@@ -44,18 +44,11 @@
   }
   }
 
-  /*$page="dashboard";
+  $page="dashboard";
   if(isset($_GET['page'])){
     $page=$_GET['page'];
-  }*/
+  }
 
-
-
-  
-
-
-  
-    
   ?>
 
     <!DOCTYPE html>
@@ -108,7 +101,7 @@
         <?php include_once("EmoloyeeFarmer.php");?>
         <?php include_once("EmoloyeeshooOwner.php");?>
         <?php include_once("AdminProducts.php");?>
-
+        <?php include_once("AdminRequest.php");?>
         <?php include_once("EmployeeRequest.php");?>
         <?php include_once("EmployeeSetting.php");?>
         <?php include_once("AdminUsers.php");?>
@@ -147,16 +140,30 @@
         </div>
         </div>
       
-      </div>
+          </div>
 
-      <!--<div id="rightDashBoard">
-          <h1>Notifications</h1>
-          <p>Farmer Request For Payment</p>
-          <p>Order Placed From Farmer</p>
-      </div>-->
+      <div id="rightDashBoard">
+  <h1>
+    Notifications
+  </h1>
+
+  <div id="notifList">Loading...</div>
+  <div id="buttonOfNotification">
+  <button type="button" id="refreshNotif">Refresh</button>
+  <button type="button" id="clearNotif">Clear</button>
+  </div>
+
+
+</div>
+
 
   </div>
       <script src="../Assets/Admin.js"></script>
+
+      <script src="../Assets/notification.js"></script>
+
+  
+
 
       <?php if(isset($_GET['page']) && $_GET['page'] === 'products'){?>
         <script>

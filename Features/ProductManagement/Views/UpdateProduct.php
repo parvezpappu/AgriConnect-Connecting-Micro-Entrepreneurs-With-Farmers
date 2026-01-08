@@ -103,7 +103,7 @@ if($product){
                 <input type="file" name="image">
             </div>
             
-            <button type="submit" name="submit" class="submit">Update Product</button>
+            <button type="submit" name="submit" class="submit" onclick="return confirm('Are you sure you want to update this product?')">Update Product</button>
             <a href="../../Dashboards/Views/Admin.php" class="cancel">Cancel</a>
         </form>
     </div>

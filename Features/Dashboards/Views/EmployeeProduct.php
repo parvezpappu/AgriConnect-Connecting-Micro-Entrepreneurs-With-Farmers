@@ -1,6 +1,6 @@
 <?php
 require_once('../../ProductManagement/Models/productModel.php');
-require_once('../../ProductBrowsing/productbrowsingModel.php');
+require_once('../../ProductBrowsing/Models/productbrowsingModel.php');
 
 if(isset($_POST['action'])){
     $productID= $_POST['productID'];
@@ -102,3 +102,8 @@ else{
     </div>
 </body>
 </html>
+
+
+
+
+
