@@ -19,9 +19,14 @@
        {
            echo "Enter valid Email and Address";
        }
+       else if(strpos($email,'@') == false || strpos($email,'.') == false)
+       {
+            echo "Invalid email";
+       }
        else
         {
             $status = saveOrder($email, $address, $totalAmount, $method);
+            setcookie("rememberEmail", $email, time() + 86400, "/");
             header("Location: ../Views/orderHistory.php");
         }
     }

@@ -1,7 +1,13 @@
  
   
 <?php
-      require_once('../Controllers/PaymentController.php')
+      require_once('../Controllers/PaymentController.php');
+
+      $emailValue = "";
+      if(isset($_COOKIE['rememberEmail']))
+      {
+         $emailValue = $_COOKIE['rememberEmail'];
+      }
 ?>
 
 <!DOCTYPE html>
@@ -17,11 +23,11 @@
   <div id="PaymentContent">
       <h2 id="PaymentMSG">Payment System</h2>
   
-      <form method="post">
+      <form method="post" onsubmit="return Validate()">
 
            <input type="hidden" name="totalCost" value="<?php echo $totalAmount; ?>">
            <label>Email </label>
-           <input type="email" name="email" id="email" placeholder="Enter you email"><br><br>
+           <input type="email" name="email" id="email" value="<?php echo $emailValue; ?>" placeholder="Enter you email"><br><br>
    
            <label>Address </label><br>
            <textarea name="address" rows="3" id="textarea" placeholder="Enter delivery address"></textarea><br><br>
@@ -40,7 +46,7 @@
 
       </form>
   </div>
- 
+           <script src="../Assets/EmailValidate.js"></script>
 </body>
  </html>
  
